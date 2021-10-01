@@ -3,6 +3,9 @@
   "name": "pbkit-devtools",
   "version": "0.1",
   "description": "Devtool for pbkit",
+  "icons": {
+      "128": "icons/pbkit-128.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
