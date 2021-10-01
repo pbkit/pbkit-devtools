@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 const Home: NextPage = () => {
-  return <div>Data: ${(window as any).__temp}</div>;
+  return <div>Foo Bar</div>;
 };
 
 export default Home;
