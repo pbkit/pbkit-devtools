@@ -1,10 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { NextPage } from 'next';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
-  return (
-    <div>Foo Bar</div>
-  )
-}
+  return <div>Data: ${(window as any).__temp}</div>;
+};
 
-export default Home
+export default Home;

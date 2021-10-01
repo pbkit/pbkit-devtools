@@ -6,7 +6,6 @@
   "icons": {
     "128": "icons/pbkit-128.png"
   },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "devtools_page": "devtools.html",
   "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
   "background": {

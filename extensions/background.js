@@ -1,20 +1,41 @@
-function requestListener(details) {
-  let filter = browser.webRequest.filterResponseData(details.requestId);
-  let decoder = new TextDecoder('utf-8');
+const dataStore = {};
 
-  console.log(details.requestBody);
+function listener(details) {
+  if (details.requestBody) {
+    dataStore[details.requestId] = details.requestBody;
+  }
+}
 
-  filter.ondata = (event) => {
-    let str = decoder.decode(event.data, { stream: true });
-    console.log(str);
-    filter.disconnect();
-  };
+function headerListener(details) {
+  let isGrpcCall = false;
+  for (let header of details.requestHeaders) {
+    if (header.name === 'x-grpc-web' && header.value === '1') {
+      isGrpcCall = true;
+    }
+  }
 
-  return {};
+  if (isGrpcCall) {
+    console.log(dataStore[details.requestId]);
+
+    let filter = browser.webRequest.filterResponseData(details.requestId);
+
+    filter.ondata = (event) => {
+      console.log(event.data);
+
+      filter.write(event.data);
+      filter.disconnect();
+    };
+  }
 }
 
 browser.webRequest.onBeforeRequest.addListener(
-  requestListener,
+  listener,
   { urls: ['*://*.riiid.cloud/*'] },
   ['requestBody', 'blocking'],
+);
+
+browser.webRequest.onBeforeSendHeaders.addListener(
+  headerListener,
+  { urls: ['*://*.riiid.cloud/*'] },
+  ['requestHeaders', 'blocking'],
 );
