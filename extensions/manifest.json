@@ -6,13 +6,14 @@
   "icons": {
       "128": "icons/pbkit-128.png"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["main.js"]
-    }
-  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-  "devtools_page": "devtools.html"
+  "devtools_page": "devtools.html",
+  "permissions": [
+      "webRequest",
+      "<all_urls>"
+  ],
+  "background": {
+      "scripts": ["background.js"]
+  }
 }
 
