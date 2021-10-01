@@ -1,0 +1,25 @@
+name: "Export devtools panel"
+on: 
+  push:
+    paths:
+      - 'src/**'
+
+jobs:
+  export-next:
+    name: Build page and export to html
+    runs-on: ubuntu-latest
+    steps:
+      - name: "[SETUP] Checkout"
+        uses: actions/checkout@v2
+      - name: "[SETUP] Node"
+        uses: actions/setup-node@v2
+        with:
+          cache: 'yarn'
+      - name: "[SETUP] Install Dependencies"
+        run: yarn
+      - name: "[BUILD] Export"
+        run: yarn export
+      - name: "[UPLOAD] Add Exported Result"
+        uses: EndBug/add-and-commit@v7
+        with:
+          message: "[WORKFLOW] Add Exporeted Result"
