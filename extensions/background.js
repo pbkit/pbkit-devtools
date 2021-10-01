@@ -30,12 +30,12 @@ function headerListener(details) {
 
 browser.webRequest.onBeforeRequest.addListener(
   listener,
-  { urls: ['*://*.riiid.cloud/*'] },
+  { urls: ['<all_urls>'] },
   ['requestBody', 'blocking'],
 );
 
 browser.webRequest.onBeforeSendHeaders.addListener(
   headerListener,
-  { urls: ['*://*.riiid.cloud/*'] },
+  { urls: ['<all_urls>'] },
   ['requestHeaders', 'blocking'],
 );
