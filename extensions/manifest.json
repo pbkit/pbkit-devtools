@@ -7,7 +7,7 @@
     "128": "icons/pbkit-128.png"
   },
   "devtools_page": "devtools.html",
-  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>"],
+  "permissions": ["webRequest", "webRequestBlocking", "<all_urls>", "storage"],
   "background": {
     "scripts": ["background.js"]
   }

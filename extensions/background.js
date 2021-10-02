@@ -1,7 +1,7 @@
 const dataStore = {};
 
 function listener(details) {
-  if (details.requestBody) {
+  if (details.requestBody && details.type === 'xmlhttprequest') {
     dataStore[details.requestId] = details.requestBody;
   }
 }
@@ -22,8 +22,18 @@ function headerListener(details) {
     filter.ondata = (event) => {
       console.log(event.data);
 
-      filter.write(event.data);
-      filter.disconnect();
+      browser.storage.local.get()
+        .then((data) => {
+            data[details.requestId] = {
+              requestData: dataStore[details.requestId],
+              responseData: event.data,
+            };
+            browser.storage.local.set(data)
+              .then(() => {
+                filter.write(event.data);
+                filter.disconnect();
+            })
+        });
     };
   }
 }
