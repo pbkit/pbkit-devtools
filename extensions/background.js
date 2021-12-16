@@ -17,18 +17,18 @@ function headerListener(details) {
   if (isGrpcCall) {
     console.log(dataStore[details.requestId]);
 
-    let filter = browser.webRequest.filterResponseData(details.requestId);
+    let filter = chrome.webRequest.filterResponseData(details.requestId);
 
     filter.ondata = (event) => {
       console.log(event.data);
 
-      browser.storage.local.get()
+      chrome.storage.local.get()
         .then((data) => {
             data[details.requestId] = {
               requestData: dataStore[details.requestId],
               responseData: event.data,
             };
-            browser.storage.local.set(data)
+            chrome.storage.local.set(data)
               .then(() => {
                 filter.write(event.data);
                 filter.disconnect();
@@ -38,13 +38,13 @@ function headerListener(details) {
   }
 }
 
-browser.webRequest.onBeforeRequest.addListener(
+chrome.webRequest.onBeforeRequest.addListener(
   listener,
   { urls: ['<all_urls>'] },
   ['requestBody', 'blocking'],
 );
 
-browser.webRequest.onBeforeSendHeaders.addListener(
+chrome.webRequest.onBeforeSendHeaders.addListener(
   headerListener,
   { urls: ['<all_urls>'] },
   ['requestHeaders', 'blocking'],
