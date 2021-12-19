@@ -4,9 +4,7 @@
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "export": "next build && next export -o extensions/devtools"
+    "build": "next build && next export -o dist"
   },
   "dependencies": {
     "@types/node": "^17.0.0",
