@@ -4,9 +4,10 @@
   "packageManager": "yarn@3.1.1",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o dist"
+    "build": "BASE_PATH=/next next build && next export -o dist/next && rsync -a template/ dist"
   },
   "dependencies": {
+    "@types/chrome": "^0.0.171",
     "@types/node": "^17.0.0",
     "@types/react": "17.0.26",
     "next": "11.1.2",

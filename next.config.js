@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-  reactStrictMode: true,
-  pageExtensions: ['page.tsx'],
-}
+  basePath: process.env.BASE_PATH || "",
+  pageExtensions: ["page.tsx"],
+};

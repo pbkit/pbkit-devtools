@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@types/chrome", "npm:0.0.171"],
             ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:17.0.26"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
@@ -331,6 +332,45 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@tootallnate-once-npm-1.1.2-0517220057-e1fb1bbbc1.zip/node_modules/@tootallnate/once/",
           "packageDependencies": [
             ["@tootallnate/once", "npm:1.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/chrome", [
+        ["npm:0.0.171", {
+          "packageLocation": "./.yarn/cache/@types-chrome-npm-0.0.171-b360ffbf0e-657bd2a82b.zip/node_modules/@types/chrome/",
+          "packageDependencies": [
+            ["@types/chrome", "npm:0.0.171"],
+            ["@types/filesystem", "npm:0.0.32"],
+            ["@types/har-format", "npm:1.2.8"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/filesystem", [
+        ["npm:0.0.32", {
+          "packageLocation": "./.yarn/cache/@types-filesystem-npm-0.0.32-f9e6035fd6-4b9079d200.zip/node_modules/@types/filesystem/",
+          "packageDependencies": [
+            ["@types/filesystem", "npm:0.0.32"],
+            ["@types/filewriter", "npm:0.0.29"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/filewriter", [
+        ["npm:0.0.29", {
+          "packageLocation": "./.yarn/cache/@types-filewriter-npm-0.0.29-08151cd903-0c58aa875c.zip/node_modules/@types/filewriter/",
+          "packageDependencies": [
+            ["@types/filewriter", "npm:0.0.29"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/har-format", [
+        ["npm:1.2.8", {
+          "packageLocation": "./.yarn/cache/@types-har-format-npm-1.2.8-87dbad66b0-a14c6f31fb.zip/node_modules/@types/har-format/",
+          "packageDependencies": [
+            ["@types/har-format", "npm:1.2.8"]
           ],
           "linkType": "HARD",
         }]
@@ -2821,6 +2861,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["pbkit-devtools", "workspace:."],
+            ["@types/chrome", "npm:0.0.171"],
             ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:17.0.26"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],

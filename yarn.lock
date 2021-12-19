@@ -222,6 +222,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/chrome@npm:^0.0.171":
+  version: 0.0.171
+  resolution: "@types/chrome@npm:0.0.171"
+  dependencies:
+    "@types/filesystem": "*"
+    "@types/har-format": "*"
+  checksum: 657bd2a82b2550bc70a24f43e15121eaf2ee56e52e7a7a904375cded6ffd2e7a1dc27f2456719f5272454a88c483727b99deec1b7244c0cab815f8946c8a3a73
+  languageName: node
+  linkType: hard
+
+"@types/filesystem@npm:*":
+  version: 0.0.32
+  resolution: "@types/filesystem@npm:0.0.32"
+  dependencies:
+    "@types/filewriter": "*"
+  checksum: 4b9079d200a3b241722b90e1c5806c4b32c4dac87d42a1c7ef76a2c0dafdbe7d5f1a379b873ad5de73622b44de6599e1522908f67b938d54e785bd1c36e302a0
+  languageName: node
+  linkType: hard
+
+"@types/filewriter@npm:*":
+  version: 0.0.29
+  resolution: "@types/filewriter@npm:0.0.29"
+  checksum: 0c58aa875c2c245be7dbc42b20212f3203e13d11ec013a4a5cd0febf0e8b87214be5882c05ff9d7bdf0398f145a4fdbc24b7e6cf7b094e134a3b4c7a0598502f
+  languageName: node
+  linkType: hard
+
+"@types/har-format@npm:*":
+  version: 1.2.8
+  resolution: "@types/har-format@npm:1.2.8"
+  checksum: a14c6f31fb7c39be383638e00b3beaf693acfa6a2d8a10d9333f3d5cb70d3f2fc4d369a781775451012adc52faef08ff476e40a34fc6a1d6a557dd02ad984c0c
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:*, @types/node@npm:^17.0.0":
   version: 17.0.0
   resolution: "@types/node@npm:17.0.0"
@@ -2402,6 +2435,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pbkit-devtools@workspace:."
   dependencies:
+    "@types/chrome": ^0.0.171
     "@types/node": ^17.0.0
     "@types/react": 17.0.26
     next: 11.1.2
