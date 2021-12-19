@@ -1,23 +1,19 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
   "private": true,
+  "name": "pbkit-devtools",
+  "packageManager": "yarn@3.1.1",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "export": "next build && next export -o extensions/devtools"
   },
   "dependencies": {
+    "@types/node": "^17.0.0",
+    "@types/react": "17.0.26",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "@types/react": "17.0.26",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "typescript": "4.4.3"
+    "react-dom": "17.0.2",
+    "typescript": "4.5.4"
   }
 }
