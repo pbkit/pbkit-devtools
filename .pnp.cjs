@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chrome", "npm:0.0.171"],
             ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:17.0.26"],
+            ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
             ["pbkit", "npm:0.0.26"],
             ["react", "npm:17.0.2"],
@@ -2223,6 +2224,64 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["jotai", [
+        ["npm:1.4.8", {
+          "packageLocation": "./.yarn/cache/jotai-npm-1.4.8-07d9dd9fea-98d1c6bcd6.zip/node_modules/jotai/",
+          "packageDependencies": [
+            ["jotai", "npm:1.4.8"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8", {
+          "packageLocation": "./.yarn/__virtual__/jotai-virtual-eaaaa20a44/0/cache/jotai-npm-1.4.8-07d9dd9fea-98d1c6bcd6.zip/node_modules/jotai/",
+          "packageDependencies": [
+            ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
+            ["@babel/core", null],
+            ["@babel/template", null],
+            ["@types/babel__core", null],
+            ["@types/babel__template", null],
+            ["@types/immer", null],
+            ["@types/optics-ts", null],
+            ["@types/react", "npm:17.0.26"],
+            ["@types/react-query", null],
+            ["@types/urql__core", null],
+            ["@types/valtio", null],
+            ["@types/wonka", null],
+            ["@types/xstate", null],
+            ["@urql/core", null],
+            ["immer", null],
+            ["optics-ts", null],
+            ["react", "npm:17.0.2"],
+            ["react-query", null],
+            ["valtio", null],
+            ["wonka", null],
+            ["xstate", null]
+          ],
+          "packagePeers": [
+            "@babel/core",
+            "@babel/template",
+            "@types/babel__core",
+            "@types/babel__template",
+            "@types/immer",
+            "@types/optics-ts",
+            "@types/react-query",
+            "@types/react",
+            "@types/urql__core",
+            "@types/valtio",
+            "@types/wonka",
+            "@types/xstate",
+            "@urql/core",
+            "immer",
+            "optics-ts",
+            "react-query",
+            "react",
+            "valtio",
+            "wonka",
+            "xstate"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["js-tokens", [
         ["npm:4.0.0", {
           "packageLocation": "./.yarn/cache/js-tokens-npm-4.0.0-0ac852e9e2-8a95213a5a.zip/node_modules/js-tokens/",
@@ -2952,6 +3011,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chrome", "npm:0.0.171"],
             ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:17.0.26"],
+            ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
             ["pbkit", "npm:0.0.26"],
             ["react", "npm:17.0.2"],

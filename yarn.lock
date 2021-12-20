@@ -1855,6 +1855,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jotai@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "jotai@npm:1.4.8"
+  peerDependencies:
+    "@babel/core": "*"
+    "@babel/template": "*"
+    "@urql/core": "*"
+    immer: "*"
+    optics-ts: "*"
+    react: ">=16.8"
+    react-query: "*"
+    valtio: "*"
+    wonka: "*"
+    xstate: "*"
+  peerDependenciesMeta:
+    "@babel/core":
+      optional: true
+    "@babel/template":
+      optional: true
+    "@urql/core":
+      optional: true
+    immer:
+      optional: true
+    optics-ts:
+      optional: true
+    react-query:
+      optional: true
+    valtio:
+      optional: true
+    wonka:
+      optional: true
+    xstate:
+      optional: true
+  checksum: 98d1c6bcd69271478badc02fae351914c27dbe04b0bf588a65cd0b277f8bbdf82629f4efa62a2146f364a342d8ebe50bccd12f39debe738ff21a6737965122c4
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -2505,6 +2542,7 @@ __metadata:
     "@types/chrome": ^0.0.171
     "@types/node": ^17.0.0
     "@types/react": 17.0.26
+    jotai: ^1.4.8
     next: 11.1.2
     pbkit: ^0.0.26
     react: 17.0.2
