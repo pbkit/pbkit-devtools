@@ -1,7 +1,11 @@
-:root,
-body {
-  margin: 0;
-}
-#__next {
-  min-height: 100vh;
+:root {
+  --pb-bg: var(--oc-white);
+  --pb-fg: var(--oc-black);
+  --pb-sep: var(--oc-gray-6);
+  --pb-bg-hover: var(--oc-blue-2);
+  --pb-bg-active: var(--oc-blue-7);
+  --pb-bg-focus: var(--oc-blue-5);
+  --pb-fg-hover: var(--pb-fg);
+  --pb-fg-active: var(--oc-white);
+  --pb-fg-focus: var(--oc-white);
 }

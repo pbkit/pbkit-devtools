@@ -2360,6 +2360,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"normalize.css@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "normalize.css@npm:8.0.1"
+  checksum: 4698cae88ec35e3f3e82f9f9402e6ffb906c27ccd6373cad88e6b3f5634fc7a043cb38702472299e5edb73825cf8b18d5fd9283f58829eddda79ea97453049a2
+  languageName: node
+  linkType: hard
+
 "npmlog@npm:^6.0.0":
   version: 6.0.0
   resolution: "npmlog@npm:6.0.0"
@@ -2421,6 +2428,13 @@ __metadata:
   dependencies:
     wrappy: 1
   checksum: cd0a88501333edd640d95f0d2700fbde6bff20b3d4d9bdc521bdd31af0656b5706570d6c6afe532045a20bb8dc0849f8332d6f2a416e0ba6d3d3b98806c7db68
+  languageName: node
+  linkType: hard
+
+"open-color@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "open-color@npm:1.9.1"
+  checksum: 8ab89bb9506d5c8ece6f0f11e98bb294ee43f2e41f8ca61de8f5b1ece9d5f7f33bc46a1caefefff8112370abdef6bfc4df4a58283b1e458b32feb451820a2d61
   languageName: node
   linkType: hard
 
@@ -2544,6 +2558,8 @@ __metadata:
     "@types/react": 17.0.26
     jotai: ^1.4.8
     next: 11.1.2
+    normalize.css: ^8.0.1
+    open-color: ^1.9.1
     pbkit: ^0.0.26
     react: 17.0.2
     react-dom: 17.0.2

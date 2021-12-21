@@ -2,6 +2,7 @@ import { memo } from "react";
 import { atom, useAtom } from "jotai";
 import { requestsAtom } from "../atoms/request";
 import { selectedRequestIdAtom } from "../atoms/ui";
+import Button from "../../../components/Button";
 import style from "./index.module.scss";
 
 interface RequestListProps {}
@@ -13,7 +14,7 @@ const RequestList: React.FC<RequestListProps> = () => {
   return (
     <div className={style["request-list"]}>
       {requestList.map(({ requestId, servicePath, rpcName }) => (
-        <div
+        <Button
           key={requestId}
           className={style["request-list-item"]}
           data-selected={requestId === selectedRequestId}
@@ -21,7 +22,7 @@ const RequestList: React.FC<RequestListProps> = () => {
         >
           <div className={style["service-path"]}>{servicePath}</div>
           <div className={style["rpc-name"]}>{rpcName}</div>
-        </div>
+        </Button>
       ))}
     </div>
   );

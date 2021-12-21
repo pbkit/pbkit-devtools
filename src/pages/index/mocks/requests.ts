@@ -12,10 +12,14 @@ export const requests1: Requests = {
     rpcName: "MyRpc1",
     metadataJson: "{}",
     tags: [],
-    requestPayloadsAtom: atom<RequestPayload[]>([]),
-    headerJsonAtom: atom<string | undefined>("{}"),
-    trailerJsonAtom: atom<string | undefined>("{}"),
-    responsePayloadsAtom: atom<ResponsePayload[]>([]),
+    requestPayloadsAtom: atom<RequestPayload[]>([
+      { payloadJson: "{}", payloadProto: new Uint8Array([]) },
+    ]),
+    headerJson: "{}",
+    trailerJson: "{}",
+    responsePayloadsAtom: atom<ResponsePayload[]>([
+      { payloadJson: "{}", payloadProto: new Uint8Array([]) },
+    ]),
   }),
   1: atom<Request>({
     servicePath: "foo.bar.MyService",
@@ -23,8 +27,8 @@ export const requests1: Requests = {
     metadataJson: "{}",
     tags: [],
     requestPayloadsAtom: atom<RequestPayload[]>([]),
-    headerJsonAtom: atom<string | undefined>("{}"),
-    trailerJsonAtom: atom<string | undefined>("{}"),
+    headerJson: "{}",
+    trailerJson: "{}",
     responsePayloadsAtom: atom<ResponsePayload[]>([]),
   }),
 };

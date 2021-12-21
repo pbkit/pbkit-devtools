@@ -10,8 +10,8 @@ export const updateRequestAtom = atom<null, Events["request"]>(
     const request: Request = {
       ...update,
       requestPayloadsAtom: atom<RequestPayload[]>([]),
-      headerJsonAtom: atom<string | undefined>(undefined),
-      trailerJsonAtom: atom<string | undefined>(undefined),
+      headerJson: undefined,
+      trailerJson: undefined,
       responsePayloadsAtom: atom<ResponsePayload[]>([]),
     };
     set(requestsAtom, {
@@ -35,8 +35,8 @@ export const updateResponseAtom = atom<null, Events["response"]>(
   null,
   (get, set, update) => {
     const requests = get(requestsAtom);
-    const request = get(requests[update.requestId]);
-    set(request.headerJsonAtom, update.headerJson);
+    const requestAtom = requests[update.requestId];
+    set(requestAtom, { ...get(requestAtom), ...update });
   }
 );
 
@@ -54,8 +54,8 @@ export const updateResponseTrailerAtom = atom<null, Events["response-trailer"]>(
   null,
   (get, set, update) => {
     const requests = get(requestsAtom);
-    const request = get(requests[update.requestId]);
-    set(request.trailerJsonAtom, update.trailerJson);
+    const requestAtom = requests[update.requestId];
+    set(requestAtom, { ...get(requestAtom), ...update });
   }
 );
 
@@ -69,8 +69,8 @@ export interface Request {
   metadataJson: string;
   tags: string[];
   requestPayloadsAtom: PrimitiveAtom<RequestPayload[]>;
-  headerJsonAtom: PrimitiveAtom<string | undefined>;
-  trailerJsonAtom: PrimitiveAtom<string | undefined>;
+  headerJson: string | undefined;
+  trailerJson: string | undefined;
   responsePayloadsAtom: PrimitiveAtom<ResponsePayload[]>;
 }
 

@@ -1,0 +1,9 @@
+.tabs {
+  display: grid;
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  .tab-bar {
+    display: flex;
+    background-color: var(--oc-gray-2);
+  }
+}

@@ -40,6 +40,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:17.0.26"],
             ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
+            ["normalize.css", "npm:8.0.1"],
+            ["open-color", "npm:1.9.1"],
             ["pbkit", "npm:0.0.26"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:17.0.2"],
@@ -2789,6 +2791,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["normalize.css", [
+        ["npm:8.0.1", {
+          "packageLocation": "./.yarn/cache/normalize.css-npm-8.0.1-6124fb39b6-4698cae88e.zip/node_modules/normalize.css/",
+          "packageDependencies": [
+            ["normalize.css", "npm:8.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["npmlog", [
         ["npm:6.0.0", {
           "packageLocation": "./.yarn/cache/npmlog-npm-6.0.0-94a534434f-33d8a7fe3d.zip/node_modules/npmlog/",
@@ -2859,6 +2870,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["once", "npm:1.4.0"],
             ["wrappy", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["open-color", [
+        ["npm:1.9.1", {
+          "packageLocation": "./.yarn/cache/open-color-npm-1.9.1-84a56b0f77-8ab89bb950.zip/node_modules/open-color/",
+          "packageDependencies": [
+            ["open-color", "npm:1.9.1"]
           ],
           "linkType": "HARD",
         }]
@@ -3013,6 +3033,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:17.0.26"],
             ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
+            ["normalize.css", "npm:8.0.1"],
+            ["open-color", "npm:1.9.1"],
             ["pbkit", "npm:0.0.26"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:17.0.2"],
