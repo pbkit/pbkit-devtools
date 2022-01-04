@@ -11,7 +11,7 @@ function injectScript(code) {
   const script = document.createElement("script");
   script.type = "text/javascript";
   script.innerText = code;
-  document.body.appendChild(script);
+  (document.head || document.documentElement).appendChild(script);
   script.remove();
 }
 function unwrapFunctionCode(fn) {
@@ -34,6 +34,7 @@ injectScript(
         const message = { target: "@pbkit/devtools/panel", event, type };
         window.postMessage(message, "*");
       });
+      console.log("Successfully connected with @pbkit/devtools/panel");
     });
   })
 );
