@@ -36,12 +36,16 @@ const RequestDetailRequest: React.FC = () => {
   return (
     <>
       <h4>Metadata</h4>
-      <pre>{selectedRequest.metadataJson}</pre>
+      <pre>
+        {JSON.stringify(JSON.parse(selectedRequest.metadataJson), null, 2)}
+      </pre>
       {requestPayloads.length > 0 && (
         <>
           <h4>Request</h4>
           {requestPayloads.map((payload, index) => (
-            <pre key={index}>{payload.payloadJson}</pre>
+            <pre key={index}>
+              {JSON.stringify(JSON.parse(payload.payloadJson), null, 2)}
+            </pre>
           ))}
         </>
       )}
@@ -59,20 +63,22 @@ const RequestDetailResponse: React.FC = () => {
       {headerJson && (
         <>
           <h4>Header</h4>
-          <pre>{headerJson}</pre>
+          <pre>{JSON.stringify(JSON.parse(headerJson), null, 2)}</pre>
         </>
       )}
       {trailerJson && (
         <>
           <h4>Trailer</h4>
-          <pre>{trailerJson}</pre>
+          <pre>{JSON.stringify(JSON.parse(trailerJson), null, 2)}</pre>
         </>
       )}
       {responsePayloads.length > 0 && (
         <>
           <h4>Response</h4>
           {responsePayloads.map((payload, index) => (
-            <pre key={index}>{payload.payloadJson}</pre>
+            <pre key={index}>
+              {JSON.stringify(JSON.parse(payload.payloadJson), null, 2)}
+            </pre>
           ))}
         </>
       )}
