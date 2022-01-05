@@ -1,8 +1,9 @@
 import { memo } from "react";
-import { atom, useAtom } from "jotai";
+import { useAtom } from "jotai";
 import { selectedRequestAtom } from "../atoms/ui";
 import style from "./index.module.scss";
 import Tabs from "../../../components/Tabs";
+import JsonView from "../../../components/JsonView";
 
 interface RequestDetailProps {}
 const RequestDetail: React.FC<RequestDetailProps> = () => {
@@ -36,16 +37,12 @@ const RequestDetailRequest: React.FC = () => {
   return (
     <>
       <h4>Metadata</h4>
-      <pre>
-        {JSON.stringify(JSON.parse(selectedRequest.metadataJson), null, 2)}
-      </pre>
+      <JsonView src={JSON.parse(selectedRequest.metadataJson)} />
       {requestPayloads.length > 0 && (
         <>
           <h4>Request</h4>
           {requestPayloads.map((payload, index) => (
-            <pre key={index}>
-              {JSON.stringify(JSON.parse(payload.payloadJson), null, 2)}
-            </pre>
+            <JsonView src={JSON.parse(payload.payloadJson)} key={index} />
           ))}
         </>
       )}
@@ -63,22 +60,20 @@ const RequestDetailResponse: React.FC = () => {
       {headerJson && (
         <>
           <h4>Header</h4>
-          <pre>{JSON.stringify(JSON.parse(headerJson), null, 2)}</pre>
+          <JsonView src={JSON.parse(headerJson)} />
         </>
       )}
       {trailerJson && (
         <>
           <h4>Trailer</h4>
-          <pre>{JSON.stringify(JSON.parse(trailerJson), null, 2)}</pre>
+          <JsonView src={JSON.parse(trailerJson)} />
         </>
       )}
       {responsePayloads.length > 0 && (
         <>
           <h4>Response</h4>
           {responsePayloads.map((payload, index) => (
-            <pre key={index}>
-              {JSON.stringify(JSON.parse(payload.payloadJson), null, 2)}
-            </pre>
+            <JsonView src={JSON.parse(payload.payloadJson)} key={index} />
           ))}
         </>
       )}
