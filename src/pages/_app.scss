@@ -10,15 +10,15 @@
   --pb-fg-focus: var(--oc-white);
 
   @media (prefers-color-scheme: dark) {
-    --pb-bg: var(--oc-black);
-    --pb-fg: var(--oc-white);
+    --pb-bg: var(--oc-gray-8);
+    --pb-fg: var(--oc-gray-5);
     --pb-sep: var(--oc-gray-7);
-    --pb-bg-hover: var(--oc-blue-3);
-    --pb-bg-active: var(--oc-blue-7);
+    --pb-bg-hover: var(--oc-blue-7);
+    --pb-bg-active: var(--oc-gray-9);
     --pb-bg-focus: var(--oc-blue-4);
-    --pb-fg-hover: var(--pb-fg);
-    --pb-fg-active: var(--oc-black);
-    --pb-fg-focus: var(--oc-black);
+    --pb-fg-hover: var(--oc-white);
+    --pb-fg-active: var(--oc-white);
+    --pb-fg-focus: var(--oc-white);
   }
 }
 
