@@ -35,9 +35,9 @@ export default Page;
 
 function useDevtoolsCommunicationLogic() {
   const updateRequests = useUpdateAtom(requestsAtom);
-  const [, setSelectedRequestSpecifier] = useAtom(selectedRequestKeyAtom);
+  const [, setSelectedRequestKey] = useAtom(selectedRequestKeyAtom);
   const resetRequests = () => {
-    setSelectedRequestSpecifier(undefined);
+    setSelectedRequestKey(undefined);
     updateRequests({});
   };
   const [preserveLog] = useAtom(preserveLogAtom);

@@ -8,5 +8,5 @@ export const selectedRequestAtom = atom((get) => {
   const selectedRequestKey = get(selectedRequestKeyAtom);
   if (!selectedRequestKey) return undefined;
   const selectedRequestAtom = requests[selectedRequestKey];
-  return selectedRequestAtom ? get(selectedRequestAtom) : undefined;
+  return selectedRequestAtom && get(selectedRequestAtom);
 });
