@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
+import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
 import style from "./index.module.scss";
 import Events from "../Events";
-import { requests1 } from "./index/mocks/requests";
 import {
   requestsAtom,
   updateRequestAtom,
@@ -14,12 +14,18 @@ import {
 } from "./index/atoms/request";
 import RequestDetail from "./index/RequestDetail";
 import RequestList from "./index/RequestList";
+import { preserveLogAtom } from "./index/atoms/setting";
+import Settings from "./index/Settings";
+import { selectedRequestKeyAtom } from "./index/atoms/ui";
 
 const Page: NextPage = () => {
   useDevtoolsCommunicationLogic();
   return (
     <div className={style.page}>
-      <RequestList />
+      <div className={style.sidebar}>
+        <Settings />
+        <RequestList />
+      </div>
       <RequestDetail />
     </div>
   );
@@ -29,6 +35,12 @@ export default Page;
 
 function useDevtoolsCommunicationLogic() {
   const updateRequests = useUpdateAtom(requestsAtom);
+  const [, setSelectedRequestKey] = useAtom(selectedRequestKeyAtom);
+  const resetRequests = () => {
+    setSelectedRequestKey(undefined);
+    updateRequests({});
+  };
+  const [preserveLog] = useAtom(preserveLogAtom);
   const updateRequest = useUpdateAtom(updateRequestAtom);
   const updateRequestPayload = useUpdateAtom(updateRequestPayloadAtom);
   const updateResponse = useUpdateAtom(updateResponseAtom);
@@ -37,7 +49,9 @@ function useDevtoolsCommunicationLogic() {
   useEffect(() => {
     try {
       const port = chrome.runtime.connect({ name: "@pbkit/devtools/panel" });
-      port.postMessage({ tabId: chrome.devtools.inspectedWindow.tabId });
+      const tabs = chrome.tabs;
+      const tabId = chrome.devtools.inspectedWindow.tabId;
+      port.postMessage({ tabId });
       interface Message {
         target: string;
         event: Events[keyof Events];
@@ -67,9 +81,18 @@ function useDevtoolsCommunicationLogic() {
           }
         }
       });
+      const listener = (
+        eventTabId: number,
+        changeInfo: chrome.tabs.TabChangeInfo
+      ) => {
+        if (changeInfo.status === "loading" && eventTabId === tabId) {
+          return !preserveLog && resetRequests();
+        }
+      };
+      tabs.onUpdated.addListener(listener);
+      return () => tabs.onUpdated.removeListener(listener);
     } catch {
       console.warn("not running on chrome developer tools");
-      updateRequests(requests1);
     }
-  }, []);
+  }, [preserveLog]);
 }

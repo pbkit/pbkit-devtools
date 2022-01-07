@@ -1,6 +1,14 @@
 import { atom, PrimitiveAtom } from "jotai";
 import type Events from "../../../Events";
 
+interface GetRequestKeyConfig {
+  configId: string;
+  requestId: number;
+}
+export const getRequestKey = ({ configId, requestId }: GetRequestKeyConfig) => {
+  return configId + "\0" + requestId;
+};
+
 export const requestsAtom = atom<Requests>({});
 
 export const updateRequestAtom = atom<null, Events["request"]>(
@@ -16,7 +24,7 @@ export const updateRequestAtom = atom<null, Events["request"]>(
     };
     set(requestsAtom, {
       ...requests,
-      [update.requestId]: atom(request),
+      [getRequestKey(update)]: atom(request),
     });
   }
 );
@@ -25,7 +33,7 @@ export const updateRequestPayloadAtom = atom<null, Events["request-payload"]>(
   null,
   (get, set, update) => {
     const requests = get(requestsAtom);
-    const request = get(requests[update.requestId]);
+    const request = get(requests[getRequestKey(update)]);
     const requestPayloads = get(request.requestPayloadsAtom);
     set(request.requestPayloadsAtom, [...requestPayloads, update]);
   }
@@ -35,7 +43,7 @@ export const updateResponseAtom = atom<null, Events["response"]>(
   null,
   (get, set, update) => {
     const requests = get(requestsAtom);
-    const requestAtom = requests[update.requestId];
+    const requestAtom = requests[getRequestKey(update)];
     set(requestAtom, { ...get(requestAtom), ...update });
   }
 );
@@ -44,7 +52,7 @@ export const updateResponsePayloadAtom = atom<null, Events["response-payload"]>(
   null,
   (get, set, update) => {
     const requests = get(requestsAtom);
-    const request = get(requests[update.requestId]);
+    const request = get(requests[getRequestKey(update)]);
     const responsePayloads = get(request.responsePayloadsAtom);
     set(request.responsePayloadsAtom, [...responsePayloads, update]);
   }
@@ -54,13 +62,13 @@ export const updateResponseTrailerAtom = atom<null, Events["response-trailer"]>(
   null,
   (get, set, update) => {
     const requests = get(requestsAtom);
-    const requestAtom = requests[update.requestId];
+    const requestAtom = requests[getRequestKey(update)];
     set(requestAtom, { ...get(requestAtom), ...update });
   }
 );
 
 export interface Requests {
-  [requestId: number]: PrimitiveAtom<Request>;
+  [key: string]: PrimitiveAtom<Request>;
 }
 
 export interface Request {
