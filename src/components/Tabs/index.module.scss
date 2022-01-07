@@ -13,5 +13,7 @@
 }
 
 .panel {
+  height: 100%;
   padding-left: 12px;
+  overflow-y: scroll;
 }
