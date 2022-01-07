@@ -50,7 +50,8 @@ function useDevtoolsCommunicationLogic() {
     try {
       const port = chrome.runtime.connect({ name: "@pbkit/devtools/panel" });
       const tabs = chrome.tabs;
-      port.postMessage({ tabId: chrome.devtools.inspectedWindow.tabId });
+      const tabId = chrome.devtools.inspectedWindow.tabId;
+      port.postMessage({ tabId });
       interface Message {
         target: string;
         event: Events[keyof Events];
@@ -80,8 +81,11 @@ function useDevtoolsCommunicationLogic() {
           }
         }
       });
-      const listener = (_: unknown, changeInfo: chrome.tabs.TabChangeInfo) => {
-        if (changeInfo.status === "loading") {
+      const listener = (
+        eventTabId: number,
+        changeInfo: chrome.tabs.TabChangeInfo
+      ) => {
+        if (changeInfo.status === "loading" && eventTabId === tabId) {
           return !preserveLog && resetRequests();
         }
       };
