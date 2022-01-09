@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "pbkit-devtools",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "pbkit devtools",
   "icons": {
     "128": "icons/pbkit-128.png"
