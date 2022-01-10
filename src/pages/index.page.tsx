@@ -5,18 +5,17 @@ import { useUpdateAtom } from "jotai/utils";
 import style from "./index.module.scss";
 import Events from "../Events";
 import {
-  requestsAtom,
   updateRequestAtom,
   updateRequestPayloadAtom,
   updateResponseAtom,
   updateResponsePayloadAtom,
   updateResponseTrailerAtom,
 } from "./index/atoms/request";
+import { resetRequestsAtom } from "./index/atoms/ui";
 import RequestDetail from "./index/RequestDetail";
 import RequestList from "./index/RequestList";
 import { preserveLogAtom } from "./index/atoms/setting";
 import Settings from "./index/Settings";
-import { selectedRequestKeyAtom } from "./index/atoms/ui";
 
 const Page: NextPage = () => {
   useDevtoolsCommunicationLogic();
@@ -34,12 +33,7 @@ const Page: NextPage = () => {
 export default Page;
 
 function useDevtoolsCommunicationLogic() {
-  const updateRequests = useUpdateAtom(requestsAtom);
-  const [, setSelectedRequestKey] = useAtom(selectedRequestKeyAtom);
-  const resetRequests = () => {
-    setSelectedRequestKey(undefined);
-    updateRequests({});
-  };
+  const resetRequests = useUpdateAtom(resetRequestsAtom);
   const [preserveLog] = useAtom(preserveLogAtom);
   const updateRequest = useUpdateAtom(updateRequestAtom);
   const updateRequestPayload = useUpdateAtom(updateRequestPayloadAtom);
