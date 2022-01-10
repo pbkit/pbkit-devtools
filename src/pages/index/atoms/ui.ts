@@ -10,3 +10,8 @@ export const selectedRequestAtom = atom((get) => {
   const selectedRequestAtom = requests[selectedRequestKey];
   return selectedRequestAtom && get(selectedRequestAtom);
 });
+
+export const resetRequestsAtom = atom(null, (_, set) => {
+  set(selectedRequestKeyAtom, undefined);
+  set(requestsAtom, {});
+});
