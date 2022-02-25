@@ -1,34 +1,44 @@
-import { atom } from "jotai";
-import type {
+import { atom, PrimitiveAtom } from "jotai";
+import { useUpdateAtom } from "jotai/utils";
+import {
+  getRequestKey,
   Request,
   RequestPayload,
   Requests,
+  requestsAtom,
   ResponsePayload,
 } from "../atoms/request";
 
-export const requests1: Requests = {
-  0: atom<Request>({
-    servicePath: "foo.bar.MyService",
-    rpcName: "MyRpc1",
-    metadataJson: "{}",
-    tags: [],
-    requestPayloadsAtom: atom<RequestPayload[]>([
-      { payloadJson: "{}", payloadProto: new Uint8Array([]) },
-    ]),
-    headerJson: "{}",
-    trailerJson: "{}",
-    responsePayloadsAtom: atom<ResponsePayload[]>([
-      { payloadJson: "{}", payloadProto: new Uint8Array([]) },
-    ]),
-  }),
-  1: atom<Request>({
-    servicePath: "foo.bar.MyService",
-    rpcName: "MyRpc2",
-    metadataJson: "{}",
-    tags: [],
-    requestPayloadsAtom: atom<RequestPayload[]>([]),
-    headerJson: "{}",
-    trailerJson: "{}",
-    responsePayloadsAtom: atom<ResponsePayload[]>([]),
-  }),
+interface MockRequest {
+  key: string;
+  request: PrimitiveAtom<Request>;
+}
+const getMockRequest = (requestId: number): MockRequest => {
+  return {
+    key: getRequestKey({ configId: "0", requestId }),
+    request: atom<Request>({
+      servicePath: "foo.bar.MyService",
+      rpcName: `MyRpc${requestId}`,
+      metadataJson: "{}",
+      tags: [],
+      requestPayloadsAtom: atom<RequestPayload[]>([]),
+      headerJson: "{}",
+      trailerJson: "{}",
+      responsePayloadsAtom: atom<ResponsePayload[]>([]),
+    }),
+  };
+};
+
+export const useAddMockRequests = () => {
+  let _requestId = 0;
+  const updateRequests = useUpdateAtom(requestsAtom);
+  return (count = 1) => {
+    for (let i = 0; i < count; i++) {
+      const request = getMockRequest(_requestId++);
+      updateRequests((requests) => ({
+        ...requests,
+        [request.key]: request.request,
+      }));
+    }
+  };
 };
