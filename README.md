@@ -2,7 +2,10 @@
 
 pbkit DevTools is Chrome extension compatible with [pbkit](https://github.com/pbkit/pbkit) web client.
 
-## Installation (for use)
+## Install via Chrome Web Store
+https://chrome.google.com/webstore/detail/pbkit-devtools/fjacmiijeihblfhobghceofniolonhca
+
+## Installation (Manual)
 
 0. Clone and build this project. (Installing from Chrome Web Store is under review.)
    ```bash
