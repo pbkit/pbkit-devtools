@@ -22,9 +22,11 @@ const getMockRequest = (requestId: number): MockRequest => {
       metadataJson: "{}",
       tags: [],
       requestPayloadsAtom: atom<RequestPayload[]>([]),
+      requestError: undefined,
       headerJson: "{}",
       trailerJson: "{}",
       responsePayloadsAtom: atom<ResponsePayload[]>([]),
+      responseError: undefined,
     }),
   };
 };

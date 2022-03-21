@@ -34,6 +34,7 @@ const RequestDetailRequest: React.FC = () => {
   const [selectedRequest] = useAtom(selectedRequestAtom);
   if (!selectedRequest) return null;
   const [requestPayloads] = useAtom(selectedRequest.requestPayloadsAtom);
+  const { requestError } = selectedRequest;
   return (
     <>
       <h4>Metadata</h4>
@@ -46,6 +47,14 @@ const RequestDetailRequest: React.FC = () => {
           ))}
         </>
       )}
+      {requestError && (
+        <>
+          <h4>RequestError</h4>
+          <p className={style["request-detail--paragraph"]}>
+            {requestError.errorMessage}
+          </p>
+        </>
+      )}
     </>
   );
 };
@@ -53,7 +62,7 @@ const RequestDetailRequest: React.FC = () => {
 const RequestDetailResponse: React.FC = () => {
   const [selectedRequest] = useAtom(selectedRequestAtom);
   if (!selectedRequest) return null;
-  const { headerJson, trailerJson } = selectedRequest;
+  const { headerJson, trailerJson, responseError } = selectedRequest;
   const [responsePayloads] = useAtom(selectedRequest.responsePayloadsAtom);
   return (
     <>
@@ -75,6 +84,14 @@ const RequestDetailResponse: React.FC = () => {
           {responsePayloads.map((payload, index) => (
             <JsonView src={JSON.parse(payload.payloadJson)} key={index} />
           ))}
+        </>
+      )}
+      {responseError && (
+        <>
+          <h4>ResponseError</h4>
+          <p className={style["request-detail--paragraph"]}>
+            {responseError.errorMessage}
+          </p>
         </>
       )}
     </>
