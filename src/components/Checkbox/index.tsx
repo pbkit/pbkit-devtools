@@ -5,6 +5,7 @@ interface CheckboxProps {
   isChecked: boolean;
   onChange(value: boolean): void;
   children?: React.ReactNode;
+  className?: string;
 }
 const Checkbox: React.FC<CheckboxProps> = ({
   isChecked,
@@ -13,7 +14,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   ...props
 }) => {
   return (
-    <label className={styles.checkbox} {...props}>
+    <label {...props} className={`${styles.checkbox} ${props.className ?? ""}`}>
       <input
         type="checkbox"
         checked={isChecked}

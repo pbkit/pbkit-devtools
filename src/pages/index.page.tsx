@@ -18,17 +18,21 @@ import RequestDetail from "./index/RequestDetail";
 import RequestList from "./index/RequestList";
 import { preserveLogAtom } from "./index/atoms/setting";
 import Settings from "./index/Settings";
+import Experimental from "./index/Experimental";
 
 const Page: NextPage = () => {
   useDevtoolsCommunicationLogic();
   return (
-    <div className={style.page}>
-      <div className={style.sidebar}>
-        <Settings />
-        <RequestList />
+    <>
+      <div className={style.page}>
+        <div className={style.sidebar}>
+          <Settings />
+          {process.env.NODE_ENV === "development" && <Experimental />}
+          <RequestList />
+        </div>
+        <RequestDetail />
       </div>
-      <RequestDetail />
-    </div>
+    </>
   );
 };
 

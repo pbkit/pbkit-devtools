@@ -1,4 +1,7 @@
 :root {
+  height: 100%;
+  overflow: hidden;
+
   --pb-bg: var(--oc-white);
   --pb-fg: var(--oc-black);
   --pb-sep: var(--oc-gray-6);
@@ -25,4 +28,36 @@
 body {
   color: var(--pb-fg);
   max-height: 100vh;
+}
+
+button {
+  padding: 0;
+}
+
+input {
+  border: 0;
+  color: var(--oc-gray-5);
+  background-color: var(--oc-gray-9);
+  padding: 0.25em;
+  width: 100%;
+}
+
+// For compatibility with the Chromium devTools environment.
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  cursor: default;
+  font-family: system-ui, sans-serif;
+  font-size: 12px;
+  tab-size: 4;
+  user-select: none;
+}
+
+* {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 0;
 }
