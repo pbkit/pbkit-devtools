@@ -13,17 +13,29 @@ const RequestList: React.FC<RequestListProps> = () => {
   );
   return (
     <div className={style["request-list"]}>
-      {requestList.map(({ key, servicePath, rpcName }) => (
-        <Button
-          key={key}
-          className={style["request-list-item"]}
-          data-selected={key === selectedRequestKey}
-          onClick={() => setSelectedRequestKey(key)}
-        >
-          <div className={style["service-path"]}>{servicePath}</div>
-          <div className={style["rpc-name"]}>{rpcName}</div>
-        </Button>
-      ))}
+      {requestList.map(
+        ({ key, servicePath, rpcName, responsePayloads, responseError }) => (
+          <Button
+            key={key}
+            className={style["request-list-item"]}
+            data-selected={key === selectedRequestKey}
+            onClick={() => setSelectedRequestKey(key)}
+          >
+            <div className={style["list-main"]}>
+              <div className={style["service-path"]}>{servicePath}</div>
+              <div className={style["rpc-name"]}>{rpcName}</div>
+            </div>
+            <div className={style["list-status"]}>
+              {responsePayloads.length > 0 && (
+                <div className={style["payload-circle"]}>
+                  {responsePayloads.length}
+                </div>
+              )}
+              {responseError && <div className={style["error-circle"]} />}
+            </div>
+          </Button>
+        )
+      )}
     </div>
   );
 };
@@ -32,7 +44,10 @@ export default memo(RequestList);
 const requestListAtom = atom((get) => {
   const requests = get(requestsAtom);
   return Object.keys(requests).map((key) => {
-    const { servicePath, rpcName } = get(requests[key]);
-    return { key, servicePath, rpcName };
+    const { servicePath, rpcName, responsePayloadsAtom, responseError } = get(
+      requests[key]
+    );
+    const responsePayloads = get(responsePayloadsAtom);
+    return { key, servicePath, rpcName, responsePayloads, responseError };
   });
 });

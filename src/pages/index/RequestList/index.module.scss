@@ -6,16 +6,46 @@
 }
 
 .request-list-item {
-  .service-path {
-    font-size: 0.7em;
-  }
-  .rpc-name {
-    font-weight: bold;
-  }
-  .service-path,
-  .rpc-name {
+  display: flex;
+  justify-content: space-between;
+
+  .list-main {
+    .service-path {
+      font-size: 0.7em;
+    }
+    .rpc-name {
+      font-weight: bold;
+    }
+
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .list-status {
+    flex-shrink: 0;
+    position: relative;
+    color: var(--pb-fg-active);
+
+    .payload-circle {
+      background-color: var(--oc-green-8);
+    }
+
+    .error-circle {
+      background-color: var(--oc-red-8);
+    }
+
+    .payload-circle,
+    .error-circle {
+      margin-left: 0.25em;
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+    }
   }
 }

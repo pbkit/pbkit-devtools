@@ -23,7 +23,6 @@ const Settings: React.FC<SettingsProps> = () => {
         isChecked={preserveLog}
         onChange={(v) => {
           setPreserveLog(v);
-          console.log(v);
         }}
       >
         Preserve log
