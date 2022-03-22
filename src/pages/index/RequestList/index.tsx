@@ -17,9 +17,8 @@ const RequestList: React.FC<RequestListProps> = () => {
   const memoizedRequestList = useMemo(() => {
     if (searchValue.length === 0 || !isFilterActive) return requestList;
     return requestList.filter(
-      ({ key, servicePath, rpcName, requestPayloads, responsePayloads }) => {
+      ({ servicePath, rpcName, requestPayloads, responsePayloads }) => {
         return (
-          key.includes(searchValue) ||
           servicePath.includes(searchValue) ||
           rpcName.includes(searchValue) ||
           requestPayloads.some(({ payloadJson }) =>
