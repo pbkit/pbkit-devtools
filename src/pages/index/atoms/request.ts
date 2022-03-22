@@ -18,9 +18,11 @@ export const updateRequestAtom = atom<null, Events["request"]>(
     const request: Request = {
       ...update,
       requestPayloadsAtom: atom<RequestPayload[]>([]),
+      requestError: undefined,
       headerJson: undefined,
       trailerJson: undefined,
       responsePayloadsAtom: atom<ResponsePayload[]>([]),
+      responseError: undefined,
     };
     set(requestsAtom, {
       ...requests,
@@ -36,6 +38,15 @@ export const updateRequestPayloadAtom = atom<null, Events["request-payload"]>(
     const request = get(requests[getRequestKey(update)]);
     const requestPayloads = get(request.requestPayloadsAtom);
     set(request.requestPayloadsAtom, [...requestPayloads, update]);
+  }
+);
+
+export const updateRequestErrorAtom = atom<null, Events["request-error"]>(
+  null,
+  (get, set, update) => {
+    const requests = get(requestsAtom);
+    const requestAtom = requests[getRequestKey(update)];
+    set(requestAtom, { ...get(requestAtom), requestError: update });
   }
 );
 
@@ -58,6 +69,15 @@ export const updateResponsePayloadAtom = atom<null, Events["response-payload"]>(
   }
 );
 
+export const updateResponseErrorAtom = atom<null, Events["response-error"]>(
+  null,
+  (get, set, update) => {
+    const requests = get(requestsAtom);
+    const requestAtom = requests[getRequestKey(update)];
+    set(requestAtom, { ...get(requestAtom), responseError: update });
+  }
+);
+
 export const updateResponseTrailerAtom = atom<null, Events["response-trailer"]>(
   null,
   (get, set, update) => {
@@ -77,9 +97,11 @@ export interface Request {
   metadataJson: string;
   tags: string[];
   requestPayloadsAtom: PrimitiveAtom<RequestPayload[]>;
+  requestError: RequestError | undefined;
   headerJson: string | undefined;
   trailerJson: string | undefined;
   responsePayloadsAtom: PrimitiveAtom<ResponsePayload[]>;
+  responseError: ResponseError | undefined;
 }
 
 export interface RequestPayload {
@@ -87,7 +109,15 @@ export interface RequestPayload {
   payloadProto: Uint8Array;
 }
 
+export interface RequestError {
+  errorMessage: string;
+}
+
 export interface ResponsePayload {
   payloadJson: string;
   payloadProto: Uint8Array;
+}
+
+export interface ResponseError {
+  errorMessage: string;
 }

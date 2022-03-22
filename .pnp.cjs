@@ -42,7 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
             ["normalize.css", "npm:8.0.1"],
             ["open-color", "npm:1.9.1"],
-            ["pbkit", "npm:0.0.26"],
+            ["pbkit", "npm:0.0.41"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:17.0.2"],
             ["react-json-view", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.21.3"],
@@ -3125,10 +3125,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["pbkit", [
-        ["npm:0.0.26", {
-          "packageLocation": "./.yarn/unplugged/pbkit-npm-0.0.26-87ef6c4582/node_modules/pbkit/",
+        ["npm:0.0.41", {
+          "packageLocation": "./.yarn/unplugged/pbkit-npm-0.0.41-d3a4008b54/node_modules/pbkit/",
           "packageDependencies": [
-            ["pbkit", "npm:0.0.26"],
+            ["pbkit", "npm:0.0.41"],
             ["@yarnpkg/fslib", "npm:2.6.0"],
             ["@yarnpkg/libzip", "npm:2.2.2"],
             ["core-js", "npm:3.18.1"],
@@ -3149,7 +3149,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
             ["normalize.css", "npm:8.0.1"],
             ["open-color", "npm:1.9.1"],
-            ["pbkit", "npm:0.0.26"],
+            ["pbkit", "npm:0.0.41"],
             ["react", "npm:17.0.2"],
             ["react-dom", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:17.0.2"],
             ["react-json-view", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.21.3"],

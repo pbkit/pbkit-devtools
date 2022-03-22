@@ -6,8 +6,10 @@ import style from "./index.module.scss";
 import Events from "../Events";
 import {
   updateRequestAtom,
+  updateRequestErrorAtom,
   updateRequestPayloadAtom,
   updateResponseAtom,
+  updateResponseErrorAtom,
   updateResponsePayloadAtom,
   updateResponseTrailerAtom,
 } from "./index/atoms/request";
@@ -37,8 +39,10 @@ function useDevtoolsCommunicationLogic() {
   const [preserveLog] = useAtom(preserveLogAtom);
   const updateRequest = useUpdateAtom(updateRequestAtom);
   const updateRequestPayload = useUpdateAtom(updateRequestPayloadAtom);
+  const updateRequestError = useUpdateAtom(updateRequestErrorAtom);
   const updateResponse = useUpdateAtom(updateResponseAtom);
   const updateResponsePayload = useUpdateAtom(updateResponsePayloadAtom);
+  const updateResponseError = useUpdateAtom(updateResponseErrorAtom);
   const updateResponseTrailer = useUpdateAtom(updateResponseTrailerAtom);
   useEffect(() => {
     try {
@@ -61,6 +65,10 @@ function useDevtoolsCommunicationLogic() {
             const event = message.event as Events["request-payload"];
             return updateRequestPayload(event);
           }
+          case "request-error": {
+            const event = message.event as Events["request-error"];
+            return updateRequestError(event);
+          }
           case "response": {
             const event = message.event as Events["response"];
             return updateResponse(event);
@@ -68,6 +76,10 @@ function useDevtoolsCommunicationLogic() {
           case "response-payload": {
             const event = message.event as Events["response-payload"];
             return updateResponsePayload(event);
+          }
+          case "response-error": {
+            const event = message.event as Events["response-error"];
+            return updateResponseError(event);
           }
           case "response-trailer": {
             const event = message.event as Events["response-trailer"];

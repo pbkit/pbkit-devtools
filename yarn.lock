@@ -2649,7 +2649,7 @@ __metadata:
     next: 11.1.2
     normalize.css: ^8.0.1
     open-color: ^1.9.1
-    pbkit: ^0.0.26
+    pbkit: ^0.0.41
     react: 17.0.2
     react-dom: 17.0.2
     react-json-view: ^1.21.3
@@ -2658,9 +2658,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"pbkit@npm:^0.0.26":
-  version: 0.0.26
-  resolution: "pbkit@npm:0.0.26"
+"pbkit@npm:^0.0.41":
+  version: 0.0.41
+  resolution: "pbkit@npm:0.0.41"
   dependencies:
     "@yarnpkg/fslib": ^2.6.0-rc.8
     "@yarnpkg/libzip": ^2.2.2
@@ -2669,7 +2669,7 @@ __metadata:
   bin:
     pb-gen-ts: node/cli/pb-gen-ts.js
     pb-gen-ts-bundle: node/cli/pb-gen-ts-bundle.js
-  checksum: 64b73e7c9e04d075c100e7656dbc89b7f496588746afbe4e502cef7632fb9a78af41e779aa4468fd2059970a8a841b6aafa1340de7db8e7aab9432e8c10be91d
+  checksum: a6e705751ab57335d693c3ba060194ad41b5edf5242c398c5575b6c590fb70a6fb8832368b52d9ec218349b1e416f94c1ac1736f4f07e3f4c973293a21d570fd
   languageName: node
   linkType: hard
 
