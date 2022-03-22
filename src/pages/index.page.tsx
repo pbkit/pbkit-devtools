@@ -56,7 +56,6 @@ function useDevtoolsCommunicationLogic() {
         type: keyof Events;
       }
       port.onMessage.addListener((message: Message) => {
-        console.log("client", message);
         switch (message.type) {
           case "request": {
             const event = message.event as Events["request"];
@@ -79,7 +78,6 @@ function useDevtoolsCommunicationLogic() {
             return updateResponsePayload(event);
           }
           case "response-error": {
-            console.log("hi");
             const event = message.event as Events["response-error"];
             return updateResponseError(event);
           }
