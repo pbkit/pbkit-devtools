@@ -17,11 +17,7 @@ const Settings: React.FC<SettingsProps> = () => {
     <div className={styles.settings}>
       <div className={styles["search-section"]}>
         <IconButton icon="clear" onClick={resetRequests} />
-        <Checkbox
-          className={styles["checkbox"]}
-          isChecked={preserveLog}
-          onChange={setPreserveLog}
-        >
+        <Checkbox isChecked={preserveLog} onChange={setPreserveLog}>
           Preserve log
         </Checkbox>
       </div>
