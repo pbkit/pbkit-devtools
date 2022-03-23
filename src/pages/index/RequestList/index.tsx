@@ -16,20 +16,9 @@ const RequestList: React.FC<RequestListProps> = () => {
   const [searchValue] = useAtom(searchValueAtom);
   const memoizedRequestList = useMemo(() => {
     if (searchValue.length === 0 || !isFilterActive) return requestList;
-    return requestList.filter(
-      ({ servicePath, rpcName, requestPayloads, responsePayloads }) => {
-        return (
-          servicePath.includes(searchValue) ||
-          rpcName.includes(searchValue) ||
-          requestPayloads.some(({ payloadJson }) =>
-            payloadJson.includes(searchValue)
-          ) ||
-          responsePayloads.some(({ payloadJson }) =>
-            payloadJson.includes(searchValue)
-          )
-        );
-      }
-    );
+    return requestList.filter(({ servicePath, rpcName }) => {
+      return servicePath.includes(searchValue) || rpcName.includes(searchValue);
+    });
   }, [isFilterActive, requestList, searchValue]);
   return (
     <div className={style["request-list"]}>
@@ -66,18 +55,13 @@ export default memo(RequestList);
 const requestListAtom = atom((get) => {
   const requests = get(requestsAtom);
   return Object.keys(requests).map((key) => {
-    const {
-      servicePath,
-      rpcName,
-      requestPayloadsAtom,
-      responsePayloadsAtom,
-      responseError,
-    } = get(requests[key]);
+    const { servicePath, rpcName, responsePayloadsAtom, responseError } = get(
+      requests[key]
+    );
     return {
       key,
       servicePath,
       rpcName,
-      requestPayloads: get(requestPayloadsAtom),
       responsePayloads: get(responsePayloadsAtom),
       responseError,
     };
