@@ -36,7 +36,7 @@ const RequestDetailRequest: React.FC = () => {
   const [requestPayloads] = useAtom(selectedRequest.requestPayloadsAtom);
   const { requestError } = selectedRequest;
   return (
-    <>
+    <div className={style["panel"]}>
       <h4>Metadata</h4>
       <JsonView src={JSON.parse(selectedRequest.metadataJson)} />
       {requestPayloads.length > 0 && (
@@ -55,7 +55,7 @@ const RequestDetailRequest: React.FC = () => {
           </p>
         </>
       )}
-    </>
+    </div>
   );
 };
 
@@ -65,7 +65,7 @@ const RequestDetailResponse: React.FC = () => {
   const { headerJson, trailerJson, responseError } = selectedRequest;
   const [responsePayloads] = useAtom(selectedRequest.responsePayloadsAtom);
   return (
-    <>
+    <div className={style["panel"]}>
       {headerJson && (
         <>
           <h4>Header</h4>
@@ -94,6 +94,6 @@ const RequestDetailResponse: React.FC = () => {
           </p>
         </>
       )}
-    </>
+    </div>
   );
 };

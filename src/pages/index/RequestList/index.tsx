@@ -1,6 +1,6 @@
 import { useMemo, memo } from "react";
-import { atom, useAtom } from "jotai";
-import { requestsAtom } from "../atoms/request";
+import { useAtom } from "jotai";
+import { requestListAtom } from "../atoms/request";
 import { filterAtom, filterSettingsAtom } from "../atoms/setting";
 import { selectedRequestKeyAtom } from "../atoms/ui";
 import Button from "../../../components/Button";
@@ -53,19 +53,3 @@ const RequestList: React.FC<RequestListProps> = () => {
   );
 };
 export default memo(RequestList);
-
-const requestListAtom = atom((get) => {
-  const requests = get(requestsAtom);
-  return Object.keys(requests).map((key) => {
-    const { servicePath, rpcName, responsePayloadsAtom, responseError } = get(
-      requests[key]
-    );
-    return {
-      key,
-      servicePath,
-      rpcName,
-      responsePayloads: get(responsePayloadsAtom),
-      responseError,
-    };
-  });
-});
