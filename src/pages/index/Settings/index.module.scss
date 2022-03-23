@@ -26,3 +26,9 @@
   display: flex;
   align-items: center;
 }
+
+.vertical-sep {
+  height: 100%;
+  border-right: 1px solid var(--pb-sep);
+  margin-right: 0.625em;
+}

@@ -17,6 +17,7 @@ const Settings: React.FC<SettingsProps> = () => {
     <div className={styles.settings}>
       <div className={styles["search-section"]}>
         <IconButton icon="clear" onClick={resetRequests} />
+        <div className={styles["vertical-sep"]} />
         <Checkbox isChecked={preserveLog} onChange={setPreserveLog}>
           Preserve log
         </Checkbox>
@@ -28,7 +29,7 @@ const Settings: React.FC<SettingsProps> = () => {
           onClick={() => setFilterActive((prev) => !prev)}
         />
         <input
-          placeholder="Rpc or service"
+          placeholder="Filter (rpc, service path)"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
