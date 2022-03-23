@@ -5,7 +5,7 @@
   --pb-bg: var(--oc-white);
   --pb-fg: var(--oc-black);
   --pb-sep: var(--oc-gray-6);
-  --pb-bg-light: var(--oc-white);
+  --pb-bg-dark: var(--oc-white);
   --pb-bg-hover: var(--oc-blue-2);
   --pb-bg-active: var(--oc-blue-7);
   --pb-bg-focus: var(--oc-blue-5);
@@ -17,7 +17,7 @@
     --pb-bg: var(--oc-gray-8);
     --pb-fg: var(--oc-gray-5);
     --pb-sep: var(--oc-gray-7);
-    --pb-bg-light: var(--oc-gray-7);
+    --pb-bg-dark: rgba(var(--oc-gray-9-rgb), 0.5);
     --pb-bg-hover: var(--oc-blue-7);
     --pb-bg-active: var(--oc-gray-9);
     --pb-bg-focus: var(--oc-blue-4);

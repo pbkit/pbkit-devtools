@@ -10,7 +10,7 @@
   justify-content: space-between;
 
   &:nth-child(2n):not(:hover, :active, [data-selected="true"]) {
-    background-color: var(--pb-bg-light);
+    background-color: var(--pb-bg-dark);
   }
 
   .list-main {
