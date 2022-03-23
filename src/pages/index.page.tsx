@@ -23,16 +23,18 @@ import Experimental from "./index/Experimental";
 const Page: NextPage = () => {
   useDevtoolsCommunicationLogic();
   return (
-    <>
+    <div>
+      <div className={style.settings}>
+        <Settings />
+        {process.env.NODE_ENV === "development" && <Experimental />}
+      </div>
       <div className={style.page}>
         <div className={style.sidebar}>
-          <Settings />
-          {process.env.NODE_ENV === "development" && <Experimental />}
           <RequestList />
         </div>
         <RequestDetail />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -15,3 +15,12 @@
     background-color: var(--oc-gray-8);
   }
 }
+
+.settings {
+  background-color: var(--oc-gray-2);
+  border-right: 1px solid var(--pb-sep);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-8);
+  }
+}

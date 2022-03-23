@@ -1,7 +1,7 @@
 import { useMemo, memo } from "react";
 import { atom, useAtom } from "jotai";
 import { requestsAtom } from "../atoms/request";
-import { filterAtom, searchValueAtom } from "../atoms/setting";
+import { filterAtom, filterSettingsAtom } from "../atoms/setting";
 import { selectedRequestKeyAtom } from "../atoms/ui";
 import Button from "../../../components/Button";
 import style from "./index.module.scss";
@@ -13,13 +13,15 @@ const RequestList: React.FC<RequestListProps> = () => {
     selectedRequestKeyAtom
   );
   const [isFilterActive] = useAtom(filterAtom);
-  const [searchValue] = useAtom(searchValueAtom);
+  const [filterSettings] = useAtom(filterSettingsAtom);
   const memoizedRequestList = useMemo(() => {
-    if (searchValue.length === 0 || !isFilterActive) return requestList;
+    const { value, invert } = filterSettings;
+    if (value.length === 0 || !isFilterActive) return requestList;
     return requestList.filter(({ servicePath, rpcName }) => {
-      return servicePath.includes(searchValue) || rpcName.includes(searchValue);
+      const isFiltered = servicePath.includes(value) || rpcName.includes(value);
+      return invert ? !isFiltered : isFiltered;
     });
-  }, [isFilterActive, requestList, searchValue]);
+  }, [isFilterActive, requestList, filterSettings]);
   return (
     <div className={style["request-list"]}>
       {memoizedRequestList.map(
