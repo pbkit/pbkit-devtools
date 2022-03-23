@@ -9,6 +9,10 @@
   display: flex;
   justify-content: space-between;
 
+  &:nth-child(2n):not(:hover, :active, [data-selected="true"]) {
+    background-color: var(--pb-bg-light);
+  }
+
   .list-main {
     .service-path {
       font-size: 0.7em;
