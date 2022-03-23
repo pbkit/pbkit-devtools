@@ -2,4 +2,33 @@
   padding: 4px;
   display: flex;
   flex-direction: column;
+
+  border-bottom: 1px solid var(--pb-sep);
+
+  > * {
+    padding: 4px 0;
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:not(:first-child) {
+      border-top: 1px solid var(--pb-sep);
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-sep {
+  height: 100%;
+  border-right: 1px solid var(--pb-sep);
+  margin-right: 0.625em;
 }

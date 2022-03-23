@@ -1,32 +1,39 @@
 import React from "react";
 import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
-import Button from "../../../components/Button";
 import Checkbox from "../../../components/Checkbox";
+import IconButton from "../../../components/IconButton";
 import { resetRequestsAtom } from "../atoms/ui";
-import { preserveLogAtom } from "../atoms/setting";
+import { filterAtom, preserveLogAtom, searchValueAtom } from "../atoms/setting";
 import styles from "./index.module.scss";
-import { useAddMockRequests } from "../mocks/requests";
 
 interface SettingsProps {}
 const Settings: React.FC<SettingsProps> = () => {
   const resetRequests = useUpdateAtom(resetRequestsAtom);
-  const addMockRequests = useAddMockRequests();
   const [preserveLog, setPreserveLog] = useAtom(preserveLogAtom);
+  const [searchValue, setSearchValue] = useAtom(searchValueAtom);
+  const [isFilterActive, setFilterActive] = useAtom(filterAtom);
   return (
     <div className={styles.settings}>
-      <Button onClick={resetRequests}>Remove cache</Button>
-      {process.env.NODE_ENV === "development" && (
-        <Button onClick={() => addMockRequests()}>Add mock reqs</Button>
-      )}
-      <Checkbox
-        isChecked={preserveLog}
-        onChange={(v) => {
-          setPreserveLog(v);
-        }}
-      >
-        Preserve log
-      </Checkbox>
+      <div className={styles["search-section"]}>
+        <IconButton icon="clear" onClick={resetRequests} />
+        <div className={styles["vertical-sep"]} />
+        <Checkbox isChecked={preserveLog} onChange={setPreserveLog}>
+          Preserve log
+        </Checkbox>
+      </div>
+      <div className={styles["search-section"]}>
+        <IconButton
+          icon="filter"
+          isActive={isFilterActive}
+          onClick={() => setFilterActive((prev) => !prev)}
+        />
+        <input
+          placeholder="Filter (rpc, service path)"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+      </div>
     </div>
   );
 };
