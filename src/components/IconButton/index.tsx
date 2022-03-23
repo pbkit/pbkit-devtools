@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 
-type Icon = "filter" | "search" | "clear";
+type Icon = "filter" | "search" | "clear" | "delete";
 
 export interface IconButtonProps
   extends Omit<React.HTMLAttributes<HTMLButtonElement>, "children"> {

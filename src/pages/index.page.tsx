@@ -19,20 +19,30 @@ import RequestList from "./index/RequestList";
 import { preserveLogAtom } from "./index/atoms/setting";
 import Settings from "./index/Settings";
 import Experimental from "./index/Experimental";
+import SidePage from "./index/SidePage";
+import { sidePageStatusAtom } from "./index/atoms/page";
 
 const Page: NextPage = () => {
+  const [isSidePageOpened] = useAtom(sidePageStatusAtom);
   useDevtoolsCommunicationLogic();
   return (
-    <div>
-      <div className={style.settings}>
-        <Settings />
-        {process.env.NODE_ENV === "development" && <Experimental />}
-      </div>
-      <div className={style.page}>
-        <div className={style.sidebar}>
-          <RequestList />
+    <div className={style["main-panel"]}>
+      {isSidePageOpened && (
+        <div className={style["side-page"]}>
+          <SidePage />
         </div>
-        <RequestDetail />
+      )}
+      <div className={style["main-page"]}>
+        <div className={style.settings}>
+          <Settings />
+          {process.env.NODE_ENV === "development" && <Experimental />}
+        </div>
+        <div className={style["request-page"]}>
+          <div className={style["request-list"]}>
+            <RequestList />
+          </div>
+          <RequestDetail />
+        </div>
       </div>
     </div>
   );

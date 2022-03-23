@@ -27,9 +27,17 @@
 
   .search {
     -webkit-mask-position: -196px 96px;
+
+    &.active {
+      background-color: var(--oc-blue-3);
+    }
   }
 
   .clear {
     -webkit-mask-position: 0px 144px;
+  }
+
+  .delete {
+    -webkit-mask-position: -84px 216px;
   }
 }
