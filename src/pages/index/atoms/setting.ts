@@ -7,10 +7,12 @@ export const searchAtom = atom<boolean>(false);
 interface SearchSettings {
   value: string;
   case: boolean;
+  regexp: boolean;
 }
 export const searchSettingsAtom = atom<SearchSettings>({
   value: "",
   case: false,
+  regexp: false,
 });
 
 export const updateSearchValueAtom = atom<null, string>(
@@ -26,6 +28,14 @@ export const updateSearchCaseAtom = atom<null, boolean>(
   (get, set, update) => {
     const searchSettings = get(searchSettingsAtom);
     set(searchSettingsAtom, { ...searchSettings, case: update });
+  }
+);
+
+export const updateSearchRegexpAtom = atom<null, boolean>(
+  null,
+  (get, set, update) => {
+    const searchSettings = get(searchSettingsAtom);
+    set(searchSettingsAtom, { ...searchSettings, regexp: update });
   }
 );
 

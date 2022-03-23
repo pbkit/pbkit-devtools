@@ -8,6 +8,7 @@ import { requestListAtom, RequestListItem } from "../atoms/request";
 import {
   searchSettingsAtom,
   updateSearchCaseAtom,
+  updateSearchRegexpAtom,
   updateSearchValueAtom,
 } from "../atoms/setting";
 import Button from "../../../components/Button";
@@ -48,6 +49,7 @@ const Search = () => {
   const [searchSettings] = useAtom(searchSettingsAtom);
   const updateSearchCase = useUpdateAtom(updateSearchCaseAtom);
   const updateSearchValue = useUpdateAtom(updateSearchValueAtom);
+  const updateSearchRegexp = useUpdateAtom(updateSearchRegexpAtom);
   const [selectedRequestKey, setSelectedRequestKey] = useAtom(
     selectedRequestKeyAtom
   );
@@ -82,7 +84,7 @@ const Search = () => {
           function search(target: string) {
             const escapedValue = value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
             const regexp = new RegExp(
-              escapedValue,
+              searchSettings.regexp ? value : escapedValue,
               searchSettings.case ? "g" : "gi"
             );
             return [...target.matchAll(regexp)].length;
@@ -108,6 +110,13 @@ const Search = () => {
           onClick={() => updateSearchCase(!searchSettings.case)}
         >
           Aa
+        </Button>
+        <Button
+          data-selected={searchSettings.regexp}
+          className={style["button-glyph"]}
+          onClick={() => updateSearchRegexp(!searchSettings.regexp)}
+        >
+          .*
         </Button>
       </div>
       <div className={style["search-list"]}>
