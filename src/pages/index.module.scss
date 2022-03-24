@@ -1,15 +1,44 @@
-.page {
+.main-panel {
+  display: flex;
+}
+
+.side-page {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+
+  background-color: var(--oc-gray-2);
+  border-right: 1px solid var(--pb-sep);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-8);
+  }
+}
+
+.request-page {
   display: grid;
   grid-template-columns: 15em 1fr;
   grid-template-rows: 100vh;
 }
 
-.sidebar {
+.main-page {
+  flex: 1;
+}
+
+.request-list {
   display: flex;
   flex-direction: column;
 
   background-color: var(--oc-gray-2);
   border-right: 1px solid var(--pb-sep);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-8);
+  }
+}
+
+.settings {
+  background-color: var(--oc-gray-2);
 
   @media (prefers-color-scheme: dark) {
     background-color: var(--oc-gray-8);
