@@ -21,7 +21,7 @@ const SidePage: React.FC<SidePageProps> = () => {
     <div className={style["side-page"]}>
       <Tabs
         handleCancelClick={() => {
-          updateSidePageStatus(false);
+          updateSidePageStatus("hidden");
         }}
         tabs={{
           search: {

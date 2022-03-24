@@ -27,7 +27,7 @@ const Page: NextPage = () => {
   useDevtoolsCommunicationLogic();
   return (
     <div className={style["main-panel"]}>
-      {isSidePageOpened && (
+      {isSidePageOpened === "visible" && (
         <div className={style["side-page"]}>
           <SidePage />
         </div>

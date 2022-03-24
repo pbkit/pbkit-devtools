@@ -13,7 +13,7 @@ import {
   updateFilterInvertAtom,
 } from "../atoms/setting";
 import styles from "./index.module.scss";
-import { sidePageStatusAtom } from "../atoms/page";
+import { updateSidePageStatusAtom } from "../atoms/page";
 
 interface SettingsProps {}
 const Settings: React.FC<SettingsProps> = () => {
@@ -33,7 +33,7 @@ const MainSettings = () => {
   const [preserveLog, setPreserveLog] = useAtom(preserveLogAtom);
   const [isSearchActive, setSearchActive] = useAtom(searchAtom);
   const [isFilterActive, setFilterActive] = useAtom(filterAtom);
-  const updateSidePageStatus = useUpdateAtom(sidePageStatusAtom);
+  const updateSidePageStatus = useUpdateAtom(updateSidePageStatusAtom);
   return (
     <div className={styles["search-section"]}>
       <IconButton icon="clear" onClick={resetRequests} />
@@ -43,7 +43,7 @@ const MainSettings = () => {
         isActive={isSearchActive}
         onClick={() =>
           setSearchActive((prev) => {
-            if (!prev) updateSidePageStatus(true);
+            if (!prev) updateSidePageStatus("visible");
             return true; // Close side-page to disable search
           })
         }

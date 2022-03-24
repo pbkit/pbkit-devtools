@@ -1,11 +1,12 @@
 import { atom } from "jotai";
 import { searchAtom } from "./setting";
 
-export const sidePageStatusAtom = atom<boolean>(false);
+type SidePageStatus = "visible" | "hidden";
+export const sidePageStatusAtom = atom<SidePageStatus>("hidden");
 
-export const updateSidePageStatusAtom = atom<null, boolean>(
+export const updateSidePageStatusAtom = atom<null, SidePageStatus>(
   null,
-  (get, set, update) => {
+  (_, set, update) => {
     if (!update) {
       set(searchAtom, update);
     }
