@@ -7,8 +7,8 @@ export const sidePageStatusAtom = atom<SidePageStatus>("hidden");
 export const updateSidePageStatusAtom = atom<null, SidePageStatus>(
   null,
   (_, set, update) => {
-    if (!update) {
-      set(searchAtom, update);
+    if (update === "hidden") {
+      set(searchAtom, false);
     }
     set(sidePageStatusAtom, update);
   }
