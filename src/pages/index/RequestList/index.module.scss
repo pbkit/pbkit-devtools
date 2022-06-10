@@ -52,4 +52,14 @@
       border-radius: 50%;
     }
   }
+
+  .drag-area {
+    width: 11px;
+    height: 23px;
+    opacity: 0.3;
+    margin-top: -1px;
+    border-left: 4px dotted;
+    border-right: 4px dotted;
+    cursor: grab;
+  }
 }

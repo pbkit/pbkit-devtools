@@ -1,13 +1,19 @@
 import { memo } from "react";
-import { useAtom } from "jotai";
+import { Atom, useAtom } from "jotai";
 import { selectedRequestAtom } from "../atoms/ui";
+import { Request } from "../atoms/request";
 import style from "./index.module.scss";
 import Tabs from "../../../components/Tabs";
 import JsonView from "../../../components/JsonView";
 
-interface RequestDetailProps {}
-const RequestDetail: React.FC<RequestDetailProps> = () => {
-  const [selectedRequest] = useAtom(selectedRequestAtom);
+interface RequestDetailProps {
+  requestAtom?: Atom<Request | undefined>;
+}
+const RequestDetail: React.FC<RequestDetailProps> = ({
+  requestAtom = selectedRequestAtom,
+}) => {
+  const [selectedRequest] = useAtom(requestAtom);
+  console.log(selectedRequest);
   if (!selectedRequest) {
     return <div className={style["request-detail"]}></div>;
   }
@@ -17,11 +23,13 @@ const RequestDetail: React.FC<RequestDetailProps> = () => {
         tabs={{
           request: {
             label: () => "Request",
-            Component: RequestDetailRequest,
+            Component: () => <RequestDetailRequest requestAtom={requestAtom} />,
           },
           response: {
             label: () => "Response",
-            Component: RequestDetailResponse,
+            Component: () => (
+              <RequestDetailResponse requestAtom={requestAtom} />
+            ),
           },
         }}
       />
@@ -30,8 +38,10 @@ const RequestDetail: React.FC<RequestDetailProps> = () => {
 };
 export default memo(RequestDetail);
 
-const RequestDetailRequest: React.FC = () => {
-  const [selectedRequest] = useAtom(selectedRequestAtom);
+const RequestDetailRequest: React.FC<RequestDetailProps> = ({
+  requestAtom = selectedRequestAtom,
+}) => {
+  const [selectedRequest] = useAtom(requestAtom);
   if (!selectedRequest) return null;
   const [requestPayloads] = useAtom(selectedRequest.requestPayloadsAtom);
   const { requestError } = selectedRequest;
@@ -59,8 +69,10 @@ const RequestDetailRequest: React.FC = () => {
   );
 };
 
-const RequestDetailResponse: React.FC = () => {
-  const [selectedRequest] = useAtom(selectedRequestAtom);
+const RequestDetailResponse: React.FC<RequestDetailProps> = ({
+  requestAtom = selectedRequestAtom,
+}) => {
+  const [selectedRequest] = useAtom(requestAtom);
   if (!selectedRequest) return null;
   const { headerJson, trailerJson, responseError } = selectedRequest;
   const [responsePayloads] = useAtom(selectedRequest.responsePayloadsAtom);

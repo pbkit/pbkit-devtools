@@ -1,10 +1,11 @@
 import type { NextPage } from "next";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
 import style from "./index.module.scss";
 import Events from "../Events";
 import {
+  requestsAtom,
   updateRequestAtom,
   updateRequestErrorAtom,
   updateRequestPayloadAtom,
@@ -21,9 +22,53 @@ import Settings from "./index/Settings";
 import Experimental from "./index/Experimental";
 import SidePage from "./index/SidePage";
 import { sidePageStatusAtom } from "./index/atoms/page";
+import * as FlexLayout from "flexlayout-react";
+
+const json: FlexLayout.IJsonModel = {
+  global: {
+    borderEnableDrop: false,
+  },
+  borders: [
+    {
+      type: "border",
+      location: "left",
+      selected: 0,
+      children: [
+        {
+          type: "tab",
+          enableDrag: false,
+          enableClose: false,
+          name: "RequestList",
+          component: "RequestList",
+        },
+      ],
+    },
+  ],
+  layout: {
+    type: "row",
+    weight: 100,
+    children: [
+      {
+        id: "RequestDetail",
+        type: "tabset",
+        weight: 50,
+        children: [
+          {
+            type: "tab",
+            enableClose: false,
+            name: "RequestDetail",
+            component: "RequestDetail",
+          },
+        ],
+      },
+    ],
+  },
+};
 
 const Page: NextPage = () => {
+  const layoutRef = useRef<FlexLayout.Layout>(null);
   const [isSidePageOpened] = useAtom(sidePageStatusAtom);
+  const [requests] = useAtom(requestsAtom);
   useDevtoolsCommunicationLogic();
   return (
     <div className={style["main-panel"]}>
@@ -37,11 +82,38 @@ const Page: NextPage = () => {
           <Settings />
           {process.env.NODE_ENV === "development" && <Experimental />}
         </div>
-        <div className={style["request-page"]}>
-          <div className={style["request-list"]}>
-            <RequestList />
-          </div>
-          <RequestDetail />
+        <div style={{ position: "relative", flex: 1 }}>
+          <FlexLayout.Layout
+            ref={layoutRef}
+            model={FlexLayout.Model.fromJson(json)}
+            factory={(node) => {
+              const component = node.getComponent();
+              switch (component) {
+                case "RequestList": {
+                  return (
+                    <div className={style["request-list"]}>
+                      <RequestList
+                        onRequestDragMouseDown={(key, name) => {
+                          layoutRef.current?.addTabWithDragAndDrop(name, {
+                            id: key,
+                            component: "RequestDetail",
+                            name,
+                          });
+                        }}
+                      />
+                    </div>
+                  );
+                }
+                case "RequestDetail": {
+                  const id = node.getId();
+                  if (id) {
+                    return <RequestDetail requestAtom={requests[id]} />;
+                  }
+                  return <RequestDetail />;
+                }
+              }
+            }}
+          />
         </div>
       </div>
     </div>

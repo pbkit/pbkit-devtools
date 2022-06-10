@@ -1,5 +1,6 @@
 .main-panel {
   display: flex;
+  height: 100%;
 }
 
 .side-page {
@@ -22,12 +23,13 @@
 }
 
 .main-page {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
 .request-list {
-  display: flex;
-  flex-direction: column;
+  height: 100%;
 
   background-color: var(--oc-gray-2);
   border-right: 1px solid var(--pb-sep);

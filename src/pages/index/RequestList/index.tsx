@@ -6,8 +6,12 @@ import { selectedRequestKeyAtom } from "../atoms/ui";
 import Button from "../../../components/Button";
 import style from "./index.module.scss";
 
-interface RequestListProps {}
-const RequestList: React.FC<RequestListProps> = () => {
+interface RequestListProps {
+  onRequestDragMouseDown: (key: string, rpcName: string) => void;
+}
+const RequestList: React.FC<RequestListProps> = ({
+  onRequestDragMouseDown,
+}) => {
   const [requestList] = useAtom(requestListAtom);
   const [selectedRequestKey, setSelectedRequestKey] = useAtom(
     selectedRequestKeyAtom
@@ -45,6 +49,12 @@ const RequestList: React.FC<RequestListProps> = () => {
                 )}
                 {responseError && <div className={style["error-circle"]} />}
               </div>
+              <div
+                className={style["drag-area"]}
+                onMouseDown={() => {
+                  onRequestDragMouseDown(key, rpcName);
+                }}
+              />
             </Button>
           );
         }
