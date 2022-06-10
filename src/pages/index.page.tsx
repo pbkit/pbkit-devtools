@@ -38,7 +38,7 @@ const json: FlexLayout.IJsonModel = {
           type: "tab",
           enableDrag: false,
           enableClose: false,
-          name: "RequestList",
+          name: "Requests",
           component: "RequestList",
         },
       ],
@@ -56,7 +56,7 @@ const json: FlexLayout.IJsonModel = {
           {
             type: "tab",
             enableClose: false,
-            name: "RequestDetail",
+            name: "Detail",
             component: "RequestDetail",
           },
         ],

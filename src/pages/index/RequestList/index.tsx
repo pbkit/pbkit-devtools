@@ -41,20 +41,22 @@ const RequestList: React.FC<RequestListProps> = ({
                 <div className={style["service-path"]}>{servicePath}</div>
                 <div className={style["rpc-name"]}>{rpcName}</div>
               </div>
-              <div className={style["list-status"]}>
-                {responsePayloads.length > 0 && (
-                  <div className={style["payload-circle"]}>
-                    {responsePayloads.length}
-                  </div>
-                )}
-                {responseError && <div className={style["error-circle"]} />}
+              <div className={style["list-right"]}>
+                <div className={style["list-status"]}>
+                  {responsePayloads.length > 0 && (
+                    <div className={style["payload-circle"]}>
+                      {responsePayloads.length}
+                    </div>
+                  )}
+                  {responseError && <div className={style["error-circle"]} />}
+                </div>
+                <div
+                  className={style["drag-area"]}
+                  onMouseDown={() => {
+                    onRequestDragMouseDown(key, rpcName);
+                  }}
+                />
               </div>
-              <div
-                className={style["drag-area"]}
-                onMouseDown={() => {
-                  onRequestDragMouseDown(key, rpcName);
-                }}
-              />
             </Button>
           );
         }
