@@ -26,30 +26,48 @@
     text-overflow: ellipsis;
   }
 
-  .list-status {
+  .list-right {
     flex-shrink: 0;
-    position: relative;
-    color: var(--pb-fg-active);
+    display: flex;
+    flex-direction: row;
 
-    .payload-circle {
-      background-color: var(--oc-green-8);
-    }
-
-    .error-circle {
-      background-color: var(--oc-red-8);
-    }
-
-    .payload-circle,
-    .error-circle {
-      margin-left: 0.25em;
-
+    .list-status {
+      flex-shrink: 0;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 1em;
-      height: 1em;
-      border-radius: 50%;
+      color: var(--pb-fg-active);
+
+      .payload-circle {
+        background-color: var(--oc-green-8);
+      }
+
+      .error-circle {
+        background-color: var(--oc-red-8);
+      }
+
+      .payload-circle,
+      .error-circle {
+        margin-left: 0.25em;
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+      }
+    }
+
+    .drag-area {
+      margin-left: 0.5em;
+      width: 6px;
+      height: 23px;
+      background-color: currentColor;
+      opacity: 0.3;
+      margin-top: -1px;
+      border: 3px solid;
+      border-radius: 999px;
+      cursor: grab;
     }
   }
 }

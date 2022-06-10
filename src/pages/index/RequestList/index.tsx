@@ -6,8 +6,12 @@ import { selectedRequestKeyAtom } from "../atoms/ui";
 import Button from "../../../components/Button";
 import style from "./index.module.scss";
 
-interface RequestListProps {}
-const RequestList: React.FC<RequestListProps> = () => {
+interface RequestListProps {
+  onRequestDragMouseDown: (key: string, rpcName: string) => void;
+}
+const RequestList: React.FC<RequestListProps> = ({
+  onRequestDragMouseDown,
+}) => {
   const [requestList] = useAtom(requestListAtom);
   const [selectedRequestKey, setSelectedRequestKey] = useAtom(
     selectedRequestKeyAtom
@@ -37,13 +41,21 @@ const RequestList: React.FC<RequestListProps> = () => {
                 <div className={style["service-path"]}>{servicePath}</div>
                 <div className={style["rpc-name"]}>{rpcName}</div>
               </div>
-              <div className={style["list-status"]}>
-                {responsePayloads.length > 0 && (
-                  <div className={style["payload-circle"]}>
-                    {responsePayloads.length}
-                  </div>
-                )}
-                {responseError && <div className={style["error-circle"]} />}
+              <div className={style["list-right"]}>
+                <div className={style["list-status"]}>
+                  {responsePayloads.length > 0 && (
+                    <div className={style["payload-circle"]}>
+                      {responsePayloads.length}
+                    </div>
+                  )}
+                  {responseError && <div className={style["error-circle"]} />}
+                </div>
+                <div
+                  className={style["drag-area"]}
+                  onMouseDown={() => {
+                    onRequestDragMouseDown(key, rpcName);
+                  }}
+                />
               </div>
             </Button>
           );
