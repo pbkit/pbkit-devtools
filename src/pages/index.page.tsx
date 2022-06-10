@@ -64,6 +64,7 @@ const json: FlexLayout.IJsonModel = {
     ],
   },
 };
+const model = FlexLayout.Model.fromJson(json);
 
 const Page: NextPage = () => {
   const layoutRef = useRef<FlexLayout.Layout>(null);
@@ -85,7 +86,7 @@ const Page: NextPage = () => {
         <div style={{ position: "relative", flex: 1 }}>
           <FlexLayout.Layout
             ref={layoutRef}
-            model={FlexLayout.Model.fromJson(json)}
+            model={model}
             factory={(node) => {
               const component = node.getComponent();
               switch (component) {
