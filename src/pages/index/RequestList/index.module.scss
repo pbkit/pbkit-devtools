@@ -60,12 +60,13 @@
 
     .drag-area {
       margin-left: 0.5em;
-      width: 11px;
+      width: 6px;
       height: 23px;
+      background-color: currentColor;
       opacity: 0.3;
       margin-top: -1px;
-      border-left: 4px dotted;
-      border-right: 4px dotted;
+      border: 3px solid;
+      border-radius: 999px;
       cursor: grab;
     }
   }
