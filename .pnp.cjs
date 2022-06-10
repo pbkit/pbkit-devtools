@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chrome", "npm:0.0.171"],
             ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:17.0.26"],
+            ["flexlayout-react", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:0.7.3"],
             ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
             ["normalize.css", "npm:8.0.1"],
@@ -1616,6 +1617,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["flexlayout-react", [
+        ["npm:0.7.3", {
+          "packageLocation": "./.yarn/unplugged/flexlayout-react-virtual-efccdbccb3/node_modules/flexlayout-react/",
+          "packageDependencies": [
+            ["flexlayout-react", "npm:0.7.3"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:0.7.3", {
+          "packageLocation": "./.yarn/unplugged/flexlayout-react-virtual-efccdbccb3/node_modules/flexlayout-react/",
+          "packageDependencies": [
+            ["flexlayout-react", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:0.7.3"],
+            ["@types/react", "npm:17.0.26"],
+            ["@types/react-dom", null],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:17.0.2"],
+            ["uuid", "npm:8.3.2"]
+          ],
+          "packagePeers": [
+            "@types/react-dom",
+            "@types/react",
+            "react-dom",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["flux", [
         ["npm:4.0.3", {
           "packageLocation": "./.yarn/cache/flux-npm-4.0.3-d14ec8aca2-6b3f5150bc.zip/node_modules/flux/",
@@ -3145,6 +3173,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/chrome", "npm:0.0.171"],
             ["@types/node", "npm:17.0.0"],
             ["@types/react", "npm:17.0.26"],
+            ["flexlayout-react", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:0.7.3"],
             ["jotai", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:1.4.8"],
             ["next", "virtual:1c5b1cbf6228433d7014db0bcc196b62a2085e654f14d08f77d3d6382265d4254490af33532d7bd980c926b51429b3bd2618afb5f3422089a77c83a399f69c00#npm:11.1.2"],
             ["normalize.css", "npm:8.0.1"],
@@ -4377,6 +4406,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/util-deprecate-npm-1.0.2-e3fe1a219c-474acf1146.zip/node_modules/util-deprecate/",
           "packageDependencies": [
             ["util-deprecate", "npm:1.0.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["uuid", [
+        ["npm:8.3.2", {
+          "packageLocation": "./.yarn/cache/uuid-npm-8.3.2-eca0baba53-5575a8a75c.zip/node_modules/uuid/",
+          "packageDependencies": [
+            ["uuid", "npm:8.3.2"]
           ],
           "linkType": "HARD",
         }]
