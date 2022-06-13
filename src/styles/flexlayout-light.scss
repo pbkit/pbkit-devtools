@@ -13,7 +13,6 @@ $color_drag1_background: rgba(95, 134, 196, 0.1) !default;
 $color_drag2_background: rgba(119, 166, 119, 0.075) !default;
 
 $font-size: medium !default;
-$font-family: Roboto, Arial, sans-serif !default;
 
 .flexlayout {
   &__layout {
@@ -32,7 +31,6 @@ $font-family: Roboto, Arial, sans-serif !default;
     --color-drag2-background: #{$color_drag2_background};
 
     --font-size: #{$font_size};
-    --font-family: #{$font_family};
 
     --color-overflow: gray;
     --color-icon: gray;

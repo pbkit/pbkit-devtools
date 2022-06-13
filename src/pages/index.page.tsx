@@ -56,7 +56,7 @@ const json: FlexLayout.IJsonModel = {
           {
             type: "tab",
             enableClose: false,
-            name: "Detail",
+            name: "Selected",
             component: "RequestDetail",
           },
         ],
