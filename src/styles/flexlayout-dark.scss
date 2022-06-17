@@ -93,11 +93,11 @@
   }
 
   @mixin tabset_selected_mixin {
-    background-image: linear-gradient(var(--color-background), var(--color-4));
+    // background-image: linear-gradient(var(--color-background), var(--color-4));
   }
 
   @mixin tabset_maximized_mixin {
-    background-image: linear-gradient(var(--color-6), var(--color-2));
+    // background-image: linear-gradient(var(--color-6), var(--color-2));
   }
 
   @mixin tab_top_mixin {

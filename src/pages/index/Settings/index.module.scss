@@ -19,11 +19,23 @@
 
   .filter-input {
     width: 163px;
-    margin-right: 6px;
+
+    &:hover {
+      box-shadow: 0 0 0 1px var(--pb-sep);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px var(--oc-blue-7);
+    }
   }
 
   .margin-left {
-    margin-left: 4px;
+    margin-left: 8px;
+  }
+
+  > *:not(:last-child) {
+    flex-shrink: 0;
   }
 }
 

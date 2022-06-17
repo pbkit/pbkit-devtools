@@ -44,10 +44,12 @@ export const filterAtom = atom<boolean>(true);
 interface FilterSettings {
   value: string;
   invert: boolean;
+  tag: string[];
 }
 export const filterSettingsAtom = atom<FilterSettings>({
   value: "",
   invert: false,
+  tag: [],
 });
 
 export const updateFilterValueAtom = atom<null, string>(
@@ -63,5 +65,13 @@ export const updateFilterInvertAtom = atom<null, boolean>(
   (get, set, update) => {
     const filterSettings = get(filterSettingsAtom);
     set(filterSettingsAtom, { ...filterSettings, invert: update });
+  }
+);
+
+export const updateFilterTagAtom = atom<null, string[]>(
+  null,
+  (get, set, update) => {
+    const filterSettings = get(filterSettingsAtom);
+    set(filterSettingsAtom, { ...filterSettings, tag: update });
   }
 );

@@ -33,6 +33,11 @@ export const requestListAtom = atom<RequestListItem[]>((get) => {
   });
 });
 
+export const requestTagsAtom = atom<string[]>((get) => {
+  const requestList = get(requestListAtom);
+  return [...new Set(requestList.flatMap((item) => item.tags))];
+});
+
 export const updateRequestAtom = atom<null, Events["request"]>(
   null,
   (get, set, update) => {

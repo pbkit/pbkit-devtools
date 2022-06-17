@@ -5,13 +5,13 @@
   --pb-bg: var(--oc-white);
   --pb-fg: var(--oc-black);
   --pb-sep: var(--oc-gray-6);
-  --pb-bg-dark: var(--oc-white);
+  --pb-bg-dark: var(--oc-gray-1);
   --pb-bg-hover: var(--oc-blue-2);
   --pb-bg-active: var(--oc-blue-7);
   --pb-bg-focus: var(--oc-blue-5);
   --pb-fg-hover: var(--pb-fg);
   --pb-fg-active: var(--oc-white);
-  --pb-fg-focus: var(--oc-white);
+  --pb-fg-focus: var(--oc-gray-7);
 
   @media (prefers-color-scheme: dark) {
     --pb-bg: var(--oc-gray-8);
@@ -52,15 +52,6 @@ input {
     color: var(--oc-gray-5);
     background-color: var(--oc-gray-9);
   }
-
-  &:hover {
-    box-shadow: 0 0 0 1px var(--pb-sep);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 1px var(--oc-blue-7);
-  }
 }
 
 // For compatibility with the Chromium devTools environment.
@@ -81,4 +72,36 @@ body {
   box-sizing: border-box;
   min-width: 0;
   min-height: 0;
+}
+
+.react-select__control {
+  background-color: var(--pb-bg);
+  border-color: var(--pb-fg);
+  transition: none;
+
+  &:hover {
+    border-color: var(--pb-fg);
+  }
+}
+
+.react-select__menu {
+  background-color: var(--pb-bg);
+  border: 1px solid var(--border-color);
+}
+
+.react-select__option {
+  background-color: var(--bg-secondary);
+
+  &:hover {
+    background-color: var(--bg-primary);
+  }
+}
+
+.react-select__indicator-separator {
+  background-color: var(--border-color);
+}
+
+.react-select__placeholder,
+.react-select__single-value {
+  color: var(--text-primary);
 }

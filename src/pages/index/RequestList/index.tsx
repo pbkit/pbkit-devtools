@@ -19,12 +19,20 @@ const RequestList: React.FC<RequestListProps> = ({
   const [isFilterActive] = useAtom(filterAtom);
   const [filterSettings] = useAtom(filterSettingsAtom);
   const memoizedRequestList = useMemo(() => {
-    const { value, invert } = filterSettings;
-    if (value.length === 0 || !isFilterActive) return requestList;
-    return requestList.filter(({ servicePath, rpcName }) => {
-      const isFiltered = servicePath.includes(value) || rpcName.includes(value);
-      return invert ? !isFiltered : isFiltered;
-    });
+    const { value, tag, invert } = filterSettings;
+    let result = requestList;
+    if (!isFilterActive) return result;
+    if (value.length > 0) {
+      result = result.filter(({ servicePath, rpcName, tags }) => {
+        const isFiltered =
+          servicePath.includes(value) || rpcName.includes(value);
+        return invert ? !isFiltered : isFiltered;
+      });
+    }
+    if (tag.length > 0) {
+      result = result.filter(({ tags }) => tags.some((t) => tag.includes(t)));
+    }
+    return result;
   }, [isFilterActive, requestList, filterSettings]);
   return (
     <div className={style["request-list"]}>

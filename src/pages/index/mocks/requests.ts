@@ -20,7 +20,7 @@ const getMockRequest = (requestId: number): MockRequest => {
       servicePath: "foo.bar.MyService",
       rpcName: `MyRpc${requestId}`,
       metadataJson: "{}",
-      tags: [],
+      tags: [`MyRpcClient-${requestId}`],
       requestPayloadsAtom: atom<RequestPayload[]>([]),
       requestError: undefined,
       headerJson: "{}",
