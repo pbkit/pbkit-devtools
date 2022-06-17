@@ -108,6 +108,10 @@ const FilterSettings = () => {
             padding: "0 2px",
             overflow: "scroll",
             boxShadow: "none",
+            borderColor: "var(--pb-sep)",
+            ":hover": {
+              borderColor: "var(--pb-sep)",
+            },
           }),
           menu: (base) => ({ ...base, zIndex: 999 }),
           input: (base) => ({ ...base, boxShadow: "none" }),
