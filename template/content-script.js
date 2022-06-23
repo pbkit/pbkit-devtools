@@ -20,21 +20,18 @@ function unwrapFunctionCode(fn) {
 injectScript(
   unwrapFunctionCode(function () {
     const devtoolsKey = "@pbkit/devtools";
-    let resolve;
-    const devtoolsConfigPromise = new Promise((res) => (resolve = res));
     if (!window[devtoolsKey]) {
-      window[devtoolsKey] = [resolve];
+      window[devtoolsKey] = [register];
     } else if (Array.isArray(window[devtoolsKey])) {
-      window[devtoolsKey].push(resolve);
+      window[devtoolsKey].push(register);
     } else {
-      resolve(window[devtoolsKey]);
+      register(window[devtoolsKey]);
     }
-    devtoolsConfigPromise.then((devtoolsConfig) => {
+    function register(devtoolsConfig) {
       devtoolsConfig.on("*", (event, type) => {
         const message = { target: "@pbkit/devtools/panel", event, type };
         window.postMessage(message, "*");
       });
-      console.log("Successfully connected with @pbkit/devtools/panel");
-    });
+    }
   })
 );
