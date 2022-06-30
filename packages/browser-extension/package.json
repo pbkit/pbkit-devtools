@@ -1,5 +1,5 @@
 {
-  "name": "@pbkit-devtools/chrome-devtools",
+  "name": "@pbkit-devtools/browser-extension",
   "scripts": {
     "dev": "next dev",
     "build": "BASE_PATH=/next next build && next export -o dist/next && rsync -a template/ dist && rsync -a public/ dist",

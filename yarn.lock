@@ -410,9 +410,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@pbkit-devtools/chrome-devtools@workspace:packages/chrome-devtools":
+"@pbkit-devtools/browser-extension@workspace:packages/browser-extension":
   version: 0.0.0-use.local
-  resolution: "@pbkit-devtools/chrome-devtools@workspace:packages/chrome-devtools"
+  resolution: "@pbkit-devtools/browser-extension@workspace:packages/browser-extension"
   dependencies:
     "@types/chrome": ^0.0.171
     "@types/node": ^17.0.0

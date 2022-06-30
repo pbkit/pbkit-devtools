@@ -6,7 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "chrome": "yarn workspace @pbkit-devtools/chrome-devtools",
+    "browser": "yarn workspace @pbkit-devtools/browser-extension",
     "build": "yarn workspaces foreach -pt -j unlimited run build"
   }
 }
