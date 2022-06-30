@@ -12,14 +12,6 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
-# production
-/dist
-/dist.zip
-
 # misc
 .DS_Store
 *.pem
