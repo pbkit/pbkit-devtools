@@ -15,6 +15,5 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["packages/chrome-devtools/next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["./next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx"]
 }
