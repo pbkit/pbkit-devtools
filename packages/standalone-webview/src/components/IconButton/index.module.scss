@@ -1,0 +1,43 @@
+.icon-button {
+  flex-shrink: 0;
+  line-height: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  .icon {
+    display: inline-block;
+    width: 28px;
+    height: 24px;
+    -webkit-mask-image: url(/largeIcons.svg);
+    background-color: var(--pb-fg);
+
+    &:hover {
+      background-color: var(--pb-fg-hover);
+    }
+  }
+
+  .filter {
+    -webkit-mask-position: -56px 120px;
+
+    &.active {
+      background-color: var(--oc-red-3);
+    }
+  }
+
+  .search {
+    -webkit-mask-position: -196px 96px;
+
+    &.active {
+      background-color: var(--oc-blue-3);
+    }
+  }
+
+  .clear {
+    -webkit-mask-position: 0px 144px;
+  }
+
+  .delete {
+    -webkit-mask-position: -84px 216px;
+  }
+}

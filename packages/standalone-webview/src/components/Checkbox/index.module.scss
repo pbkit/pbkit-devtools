@@ -1,0 +1,10 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  line-height: normal;
+  column-gap: 4px;
+
+  > input {
+    width: auto;
+  }
+}

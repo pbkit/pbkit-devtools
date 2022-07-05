@@ -1,0 +1,48 @@
+.main-panel {
+  display: flex;
+  height: 100%;
+}
+
+.side-page {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+
+  background-color: var(--oc-gray-2);
+  border-right: 1px solid var(--pb-sep);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-8);
+  }
+}
+
+.request-page {
+  display: grid;
+  grid-template-columns: 15em 1fr;
+  grid-template-rows: 100vh;
+}
+
+.main-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.request-list {
+  height: 100%;
+
+  background-color: var(--oc-gray-2);
+  border-right: 1px solid var(--pb-sep);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-8);
+  }
+}
+
+.settings {
+  background-color: var(--oc-gray-2);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-8);
+  }
+}

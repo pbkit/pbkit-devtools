@@ -3,10 +3,12 @@
   "description": "pbkit DevTools",
   "packageManager": "yarn@3.2.1",
   "workspaces": [
-    "packages/browser-extension"
+    "packages/browser-extension",
+    "packages/standalone-webview"
   ],
   "scripts": {
-    "browser": "yarn workspace @pbkit-devtools/browser-extension",
+    "browser": "yarn workspace browser-extension",
+    "standalone": "yarn workspace standalone-webview",
     "build": "yarn workspaces foreach -pt -j unlimited run build"
   },
   "devDependencies": {
