@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && next export -o dist && rsync -a public/ dist",
-    "zip": "cd dist && zip -r ../webview.zip . && mv ../webview.zip ../../standalone/standalone-webview.zip"
+    "zip": "cd dist && zip -r ../dist.zip"
   },
   "dependencies": {
     "@types/chrome": "^0.0.171",
