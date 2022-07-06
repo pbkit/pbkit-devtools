@@ -13,9 +13,15 @@ jobs:
           node-version: "16"
       - run: |-
           yarn
-          yarn browser build
-          yarn browser zip
+          yarn build
+          yarn zip
       - uses: shogo82148/actions-upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
           asset_path: packages/browser-extension/dist.zip
+          asset_name: browser-extension.zip
+      - uses: shogo82148/actions-upload-release-asset@v1
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: packages/standalone/standalone-webview.zip
+          asset_name: standalone-webview.zip

@@ -2,8 +2,8 @@
   "name": "standalone-webview",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export -o dist && rsync -a public/ dist && rsync -a dist/ ../standalone/webview",
-    "zip": "cd dist && zip -r ../webview.zip . && mv ../webview.zip ../../standalone/webview.zip"
+    "build": "next build && next export -o dist && rsync -a public/ dist",
+    "zip": "cd dist && zip -r ../webview.zip . && mv ../webview.zip ../../standalone/standalone-webview.zip"
   },
   "dependencies": {
     "@types/chrome": "^0.0.171",

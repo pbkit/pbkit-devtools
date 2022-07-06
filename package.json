@@ -9,7 +9,8 @@
   "scripts": {
     "browser": "yarn workspace browser-extension",
     "standalone": "yarn workspace standalone-webview",
-    "build": "yarn workspaces foreach -pt -j unlimited run build"
+    "build": "yarn workspaces foreach -pt -j unlimited run build",
+    "zip": "yarn workspaces foreach -pt -j unlimited run zip"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
