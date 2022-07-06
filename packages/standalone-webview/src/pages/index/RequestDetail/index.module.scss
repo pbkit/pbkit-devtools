@@ -1,0 +1,16 @@
+.request-detail {
+  height: 100%;
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--oc-gray-9);
+  }
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  padding-left: 12px;
+}
+
+.request-detail--paragraph {
+  white-space: pre;
+}

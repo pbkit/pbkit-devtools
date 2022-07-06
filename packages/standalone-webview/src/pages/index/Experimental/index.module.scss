@@ -1,0 +1,12 @@
+.settings {
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+
+  border-bottom: 1px solid var(--pb-sep);
+}
+
+.search-section {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,22 @@
+.button {
+  flex-shrink: 0;
+  padding: 0.625em;
+  padding-bottom: 0.4em;
+  text-align: left;
+  border: none;
+  color: var(--pb-fg);
+  background-color: var(--pb-bg);
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  &:hover {
+    color: var(--pb-fg-hover);
+    background-color: var(--pb-bg-hover);
+  }
+  &:active,
+  &[data-selected="true"] {
+    color: var(--pb-fg-active);
+    background-color: var(--pb-bg-active);
+  }
+}

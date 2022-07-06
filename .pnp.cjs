@@ -23,13 +23,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "browser-extension",\
         "reference": "workspace:packages/browser-extension"\
+      },\
+      {\
+        "name": "standalone-webview",\
+        "reference": "workspace:packages/standalone-webview"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
       ["browser-extension", ["workspace:packages/browser-extension"]],\
-      ["pbkit-devtools", ["workspace:."]]\
+      ["pbkit-devtools", ["workspace:."]],\
+      ["standalone-webview", ["workspace:packages/standalone-webview"]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -4402,6 +4407,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["type-fest", "npm:0.7.1"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["standalone-webview", [\
+        ["workspace:packages/standalone-webview", {\
+          "packageLocation": "./packages/standalone-webview/",\
+          "packageDependencies": [\
+            ["standalone-webview", "workspace:packages/standalone-webview"],\
+            ["@types/chrome", "npm:0.0.171"],\
+            ["@types/node", "npm:17.0.0"],\
+            ["@types/react", "npm:17.0.26"],\
+            ["flexlayout-react", "virtual:9d9094919e94f38dcb04b50f606353cd6371e9787cbb826dd6bbc39457f62849ceab04ca627ac1fcf21f92de9d1b91f3e6a1646491857aef85966a0bc947f3e9#npm:0.7.3"],\
+            ["jotai", "virtual:9d9094919e94f38dcb04b50f606353cd6371e9787cbb826dd6bbc39457f62849ceab04ca627ac1fcf21f92de9d1b91f3e6a1646491857aef85966a0bc947f3e9#npm:1.4.8"],\
+            ["next", "virtual:9d9094919e94f38dcb04b50f606353cd6371e9787cbb826dd6bbc39457f62849ceab04ca627ac1fcf21f92de9d1b91f3e6a1646491857aef85966a0bc947f3e9#npm:11.1.2"],\
+            ["normalize.css", "npm:8.0.1"],\
+            ["open-color", "npm:1.9.1"],\
+            ["pbkit", "npm:0.0.41"],\
+            ["react", "npm:17.0.2"],\
+            ["react-dom", "virtual:9d9094919e94f38dcb04b50f606353cd6371e9787cbb826dd6bbc39457f62849ceab04ca627ac1fcf21f92de9d1b91f3e6a1646491857aef85966a0bc947f3e9#npm:17.0.2"],\
+            ["react-json-view", "virtual:9d9094919e94f38dcb04b50f606353cd6371e9787cbb826dd6bbc39457f62849ceab04ca627ac1fcf21f92de9d1b91f3e6a1646491857aef85966a0bc947f3e9#npm:1.21.3"],\
+            ["react-select", "virtual:9d9094919e94f38dcb04b50f606353cd6371e9787cbb826dd6bbc39457f62849ceab04ca627ac1fcf21f92de9d1b91f3e6a1646491857aef85966a0bc947f3e9#npm:5.3.2"],\
+            ["sass", "npm:1.45.0"],\
+            ["typescript", "patch:typescript@npm%3A4.7.4#~builtin<compat/typescript>::version=4.7.4&hash=7ad353"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["statuses", [\
