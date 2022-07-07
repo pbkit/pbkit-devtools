@@ -175,8 +175,7 @@ function createServer() {
     subscribeMessages(onMessage: (message: Message) => void) {
       const events = new EventSource("/connect");
       const listener = (e: MessageEvent) => {
-        const msg = JSON.parse(JSON.parse(e.data)) as Message;
-        console.log(msg);
+        const msg = JSON.parse(e.data) as Message;
         onMessage(msg);
       };
       events.addEventListener("message", listener);
