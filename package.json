@@ -12,7 +12,7 @@
     "browser": "yarn workspace @pbkit-devtools/browser-extension",
     "standalone": "yarn workspace @pbkit-devtools/standalone-webview",
     "build": "yarn workspaces foreach -ptR -j unlimited --from '{@pbkit-devtools/browser-extension,@pbkit-devtools/standalone-webview}' run build",
-    "zip": "yarn workspaces foreach -ptR -j unlimited run zip"
+    "zip": "yarn workspaces foreach -ptR -j unlimited --from '{@pbkit-devtools/browser-extension,@pbkit-devtools/standalone-webview}' run zip"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
