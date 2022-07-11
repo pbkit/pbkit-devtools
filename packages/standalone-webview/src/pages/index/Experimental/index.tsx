@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../../../components/Button";
+import Button from "@pbkit-devtools/core/components/Button";
 import styles from "./index.module.scss";
 import { useAddMockRequests } from "../mocks/requests";
 

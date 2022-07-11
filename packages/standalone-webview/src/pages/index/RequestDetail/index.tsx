@@ -1,10 +1,10 @@
 import { memo } from "react";
 import { Atom, useAtom } from "jotai";
-import { selectedRequestAtom } from "../atoms/ui";
-import { Request } from "../atoms/request";
+import { selectedRequestAtom } from "@pbkit-devtools/core/atoms/ui";
+import { Request } from "@pbkit-devtools/core/atoms/request";
 import style from "./index.module.scss";
-import Tabs from "../../../components/Tabs";
-import JsonView from "../../../components/JsonView";
+import Tabs from "@pbkit-devtools/core/components/Tabs";
+import JsonView from "@pbkit-devtools/core/components/JsonView";
 
 interface RequestDetailProps {
   requestAtom?: Atom<Request | undefined>;

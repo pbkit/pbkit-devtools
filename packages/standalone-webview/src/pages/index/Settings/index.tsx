@@ -2,9 +2,9 @@ import React from "react";
 import Select, { ThemeConfig } from "react-select";
 import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
-import Checkbox from "../../../components/Checkbox";
-import IconButton from "../../../components/IconButton";
-import { resetRequestsAtom } from "../atoms/ui";
+import Checkbox from "@pbkit-devtools/core/components/Checkbox";
+import IconButton from "@pbkit-devtools/core/components/IconButton";
+import { resetRequestsAtom } from "@pbkit-devtools/core/atoms/ui";
 import {
   filterAtom,
   preserveLogAtom,
@@ -13,10 +13,10 @@ import {
   updateFilterValueAtom,
   updateFilterInvertAtom,
   updateFilterTagAtom,
-} from "../atoms/setting";
+} from "@pbkit-devtools/core/atoms/setting";
 import styles from "./index.module.scss";
-import { updateSidePageStatusAtom } from "../atoms/page";
-import { requestTagsAtom } from "../atoms/request";
+import { updateSidePageStatusAtom } from "@pbkit-devtools/core/atoms/page";
+import { requestTagsAtom } from "@pbkit-devtools/core/atoms/request";
 
 interface SettingsProps {}
 const Settings: React.FC<SettingsProps> = () => {

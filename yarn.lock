@@ -410,6 +410,76 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@pbkit-devtools/browser-extension@workspace:packages/browser-extension":
+  version: 0.0.0-use.local
+  resolution: "@pbkit-devtools/browser-extension@workspace:packages/browser-extension"
+  dependencies:
+    "@pbkit-devtools/core": "workspace:^"
+    "@types/chrome": ^0.0.171
+    "@types/node": ^17.0.0
+    "@types/react": 17.0.26
+    flexlayout-react: ^0.7.3
+    jotai: ^1.4.8
+    next: 11.1.2
+    next-transpile-modules: ^9.0.0
+    normalize.css: ^8.0.1
+    open-color: ^1.9.1
+    pbkit: ^0.0.41
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-json-view: ^1.21.3
+    react-select: ^5.3.2
+    sass: ^1.45.0
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
+"@pbkit-devtools/core@workspace:^, @pbkit-devtools/core@workspace:packages/core":
+  version: 0.0.0-use.local
+  resolution: "@pbkit-devtools/core@workspace:packages/core"
+  dependencies:
+    "@types/chrome": ^0.0.171
+    "@types/node": ^17.0.0
+    "@types/react": 17.0.26
+    flexlayout-react: ^0.7.3
+    jotai: ^1.4.8
+    next: 11.1.2
+    normalize.css: ^8.0.1
+    open-color: ^1.9.1
+    pbkit: ^0.0.41
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-json-view: ^1.21.3
+    react-select: ^5.3.2
+    sass: ^1.45.0
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
+"@pbkit-devtools/standalone-webview@workspace:packages/standalone-webview":
+  version: 0.0.0-use.local
+  resolution: "@pbkit-devtools/standalone-webview@workspace:packages/standalone-webview"
+  dependencies:
+    "@pbkit-devtools/core": "workspace:^"
+    "@types/chrome": ^0.0.171
+    "@types/node": ^17.0.0
+    "@types/react": 17.0.26
+    flexlayout-react: ^0.7.3
+    jotai: ^1.4.8
+    next: 11.1.2
+    next-transpile-modules: ^9.0.0
+    normalize.css: ^8.0.1
+    open-color: ^1.9.1
+    pbkit: ^0.0.41
+    react: 17.0.2
+    react-dom: 17.0.2
+    react-json-view: ^1.21.3
+    react-select: ^5.3.2
+    sass: ^1.45.0
+    typescript: ^4.7.4
+  languageName: unknown
+  linkType: soft
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -772,28 +842,6 @@ __metadata:
   checksum: 8a05c9f3c4b46572dec6ef71012b1946db6cae8c7bb60ccd4b7dd5a84655db49fe043ecc6272e7ef1f69dc53d6730b9e2a3a03a8310509a3d797a618cbee52be
   languageName: node
   linkType: hard
-
-"browser-extension@workspace:packages/browser-extension":
-  version: 0.0.0-use.local
-  resolution: "browser-extension@workspace:packages/browser-extension"
-  dependencies:
-    "@types/chrome": ^0.0.171
-    "@types/node": ^17.0.0
-    "@types/react": 17.0.26
-    flexlayout-react: ^0.7.3
-    jotai: ^1.4.8
-    next: 11.1.2
-    normalize.css: ^8.0.1
-    open-color: ^1.9.1
-    pbkit: ^0.0.41
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-json-view: ^1.21.3
-    react-select: ^5.3.2
-    sass: ^1.45.0
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
 
 "browserify-aes@npm:^1.0.0, browserify-aes@npm:^1.0.4":
   version: 1.2.0
@@ -1438,6 +1486,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"enhanced-resolve@npm:^5.7.0":
+  version: 5.10.0
+  resolution: "enhanced-resolve@npm:5.10.0"
+  dependencies:
+    graceful-fs: ^4.2.4
+    tapable: ^2.2.0
+  checksum: 0bb9830704db271610f900e8d79d70a740ea16f251263362b0c91af545576d09fe50103496606c1300a05e588372d6f9780a9bc2e30ce8ef9b827ec8f44687ff
+  languageName: node
+  linkType: hard
+
 "env-paths@npm:^2.2.0":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
@@ -1775,6 +1833,13 @@ __metadata:
   version: 4.2.8
   resolution: "graceful-fs@npm:4.2.8"
   checksum: 5d224c8969ad0581d551dfabdb06882706b31af2561bd5e2034b4097e67cc27d05232849b8643866585fd0a41c7af152950f8776f4dd5579e9853733f31461c6
+  languageName: node
+  linkType: hard
+
+"graceful-fs@npm:^4.2.4":
+  version: 4.2.10
+  resolution: "graceful-fs@npm:4.2.10"
+  checksum: 3f109d70ae123951905d85032ebeae3c2a5a7a997430df00ea30df0e3a6c60cf6689b109654d6fdacd28810a053348c4d14642da1d075049e6be1ba5216218da
   languageName: node
   linkType: hard
 
@@ -2644,6 +2709,16 @@ __metadata:
   version: 0.6.2
   resolution: "negotiator@npm:0.6.2"
   checksum: dfddaff6c06792f1c4c3809e29a427b8daef8cd437c83b08dd51d7ee11bbd1c29d9512d66b801144d6c98e910ffd8723f2432e0cbf8b18d41d2a09599c975ab3
+  languageName: node
+  linkType: hard
+
+"next-transpile-modules@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "next-transpile-modules@npm:9.0.0"
+  dependencies:
+    enhanced-resolve: ^5.7.0
+    escalade: ^3.1.1
+  checksum: 9a5d86d80cedc2404b2b1d5bd4994f2f7bf60e5e20f24e8cc5cfec34da1418b4a439916f37a95ca336bcf6d81094c3647354ac6a0c6737b3df59e62b6380507d
   languageName: node
   linkType: hard
 
@@ -3710,28 +3785,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"standalone-webview@workspace:packages/standalone-webview":
-  version: 0.0.0-use.local
-  resolution: "standalone-webview@workspace:packages/standalone-webview"
-  dependencies:
-    "@types/chrome": ^0.0.171
-    "@types/node": ^17.0.0
-    "@types/react": 17.0.26
-    flexlayout-react: ^0.7.3
-    jotai: ^1.4.8
-    next: 11.1.2
-    normalize.css: ^8.0.1
-    open-color: ^1.9.1
-    pbkit: ^0.0.41
-    react: 17.0.2
-    react-dom: 17.0.2
-    react-json-view: ^1.21.3
-    react-select: ^5.3.2
-    sass: ^1.45.0
-    typescript: ^4.7.4
-  languageName: unknown
-  linkType: soft
-
 "statuses@npm:>= 1.5.0 < 2":
   version: 1.5.0
   resolution: "statuses@npm:1.5.0"
@@ -3942,6 +3995,13 @@ __metadata:
   version: 1.0.0
   resolution: "supports-preserve-symlinks-flag@npm:1.0.0"
   checksum: 53b1e247e68e05db7b3808b99b892bd36fb096e6fba213a06da7fab22045e97597db425c724f2bbd6c99a3c295e1e73f3e4de78592289f38431049e1277ca0ae
+  languageName: node
+  linkType: hard
+
+"tapable@npm:^2.2.0":
+  version: 2.2.1
+  resolution: "tapable@npm:2.2.1"
+  checksum: 3b7a1b4d86fa940aad46d9e73d1e8739335efd4c48322cb37d073eb6f80f5281889bf0320c6d8ffcfa1a0dd5bfdbd0f9d037e252ef972aca595330538aac4d51
   languageName: node
   linkType: hard
 

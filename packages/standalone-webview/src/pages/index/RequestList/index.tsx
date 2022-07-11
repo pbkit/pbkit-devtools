@@ -1,9 +1,12 @@
 import { useMemo, memo } from "react";
 import { useAtom } from "jotai";
-import { requestListAtom } from "../atoms/request";
-import { filterAtom, filterSettingsAtom } from "../atoms/setting";
-import { selectedRequestKeyAtom } from "../atoms/ui";
-import Button from "../../../components/Button";
+import { requestListAtom } from "@pbkit-devtools/core/atoms/request";
+import {
+  filterAtom,
+  filterSettingsAtom,
+} from "@pbkit-devtools/core/atoms/setting";
+import { selectedRequestKeyAtom } from "@pbkit-devtools/core/atoms/ui";
+import Button from "@pbkit-devtools/core/components/Button";
 import style from "./index.module.scss";
 
 interface RequestListProps {

@@ -7,7 +7,7 @@ import {
   Requests,
   requestsAtom,
   ResponsePayload,
-} from "../atoms/request";
+} from "@pbkit-devtools/core/atoms/request";
 
 interface MockRequest {
   key: string;
