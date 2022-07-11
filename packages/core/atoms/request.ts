@@ -1,5 +1,5 @@
 import { atom, PrimitiveAtom } from "jotai";
-import type Events from "../../../Events";
+import type Events from "../Events";
 
 interface GetRequestKeyConfig {
   configId: string;

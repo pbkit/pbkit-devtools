@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import { useAtom } from "jotai";
 import { useUpdateAtom } from "jotai/utils";
 import style from "./index.module.scss";
-import Events from "../Events";
+import Events from "@pbkit-devtools/core/Events";
 import {
   requestsAtom,
   updateRequestAtom,
@@ -13,15 +13,15 @@ import {
   updateResponseErrorAtom,
   updateResponsePayloadAtom,
   updateResponseTrailerAtom,
-} from "./index/atoms/request";
-import { resetRequestsAtom } from "./index/atoms/ui";
+} from "@pbkit-devtools/core/atoms/request";
+import { resetRequestsAtom } from "@pbkit-devtools/core/atoms/ui";
 import RequestDetail from "./index/RequestDetail";
 import RequestList from "./index/RequestList";
-import { preserveLogAtom } from "./index/atoms/setting";
+import { preserveLogAtom } from "@pbkit-devtools/core/atoms/setting";
 import Settings from "./index/Settings";
 import Experimental from "./index/Experimental";
 import SidePage from "./index/SidePage";
-import { sidePageStatusAtom } from "./index/atoms/page";
+import { sidePageStatusAtom } from "@pbkit-devtools/core/atoms/page";
 import * as FlexLayout from "flexlayout-react";
 
 const json: FlexLayout.IJsonModel = {

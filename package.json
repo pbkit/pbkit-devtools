@@ -3,14 +3,16 @@
   "description": "pbkit DevTools",
   "packageManager": "yarn@3.2.1",
   "workspaces": [
+    "packages/core",
     "packages/browser-extension",
     "packages/standalone-webview"
   ],
   "scripts": {
-    "browser": "yarn workspace browser-extension",
-    "standalone": "yarn workspace standalone-webview",
-    "build": "yarn workspaces foreach -pt -j unlimited run build",
-    "zip": "yarn workspaces foreach -pt -j unlimited run zip"
+    "core": "yarn workspace @pbkit-devtools/core",
+    "browser": "yarn workspace @pbkit-devtools/browser-extension",
+    "standalone": "yarn workspace @pbkit-devtools/standalone-webview",
+    "build": "yarn workspaces foreach -ptR -j unlimited --from '{@pbkit-devtools/browser-extension,@pbkit-devtools/standalone-webview}' run build",
+    "zip": "yarn workspaces foreach -ptR -j unlimited run zip"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
