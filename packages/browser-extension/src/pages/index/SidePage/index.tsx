@@ -1,18 +1,21 @@
 import { memo, useMemo } from "react";
 import { useAtom } from "jotai";
 import style from "./index.module.scss";
-import Tabs from "../../../components/Tabs";
+import Tabs from "@pbkit-devtools/core/components/Tabs";
 import { useUpdateAtom } from "jotai/utils";
-import { updateSidePageStatusAtom } from "../atoms/page";
-import { requestListAtom, RequestListItem } from "../atoms/request";
+import { updateSidePageStatusAtom } from "@pbkit-devtools/core/atoms/page";
+import {
+  requestListAtom,
+  RequestListItem,
+} from "@pbkit-devtools/core/atoms/request";
 import {
   searchSettingsAtom,
   updateSearchCaseAtom,
   updateSearchRegexpAtom,
   updateSearchValueAtom,
-} from "../atoms/setting";
-import Button from "../../../components/Button";
-import { selectedRequestKeyAtom } from "../atoms/ui";
+} from "@pbkit-devtools/core/atoms/setting";
+import Button from "@pbkit-devtools/core/components/Button";
+import { selectedRequestKeyAtom } from "@pbkit-devtools/core/atoms/ui";
 
 interface SidePageProps {}
 const SidePage: React.FC<SidePageProps> = () => {
