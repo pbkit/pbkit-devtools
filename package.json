@@ -1,7 +1,7 @@
 {
   "name": "pbkit-devtools",
   "description": "pbkit DevTools",
-  "packageManager": "yarn@3.2.1",
+  "packageManager": "yarn@3.2.4",
   "workspaces": [
     "packages/core",
     "packages/browser-extension",
