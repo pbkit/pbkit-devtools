@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "core": "yarn workspace @pbkit-devtools/core",
-    "browser": "yarn workspace @pbkit-devtools/browser-extension",
-    "standalone": "yarn workspace @pbkit-devtools/standalone-webview",
-    "build": "yarn workspaces foreach -ptR -j unlimited --from '{@pbkit-devtools/browser-extension,@pbkit-devtools/standalone-webview}' run build",
+    "browser": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace @pbkit-devtools/browser-extension",
+    "standalone": "NODE_OPTIONS=--openssl-legacy-provider yarn workspace @pbkit-devtools/standalone-webview",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider yarn workspaces foreach -ptR -j unlimited --from '{@pbkit-devtools/browser-extension,@pbkit-devtools/standalone-webview}' run build",
     "zip": "yarn workspaces foreach -ptR -j unlimited --from '{@pbkit-devtools/browser-extension,@pbkit-devtools/standalone-webview}' run zip"
   },
   "devDependencies": {
