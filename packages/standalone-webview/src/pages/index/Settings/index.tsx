@@ -95,7 +95,13 @@ const FilterSettings = () => {
         placeholder="Filter by tag..."
         styles={{
           container: (base) => ({ ...base, minWidth: 150 }),
-          valueContainer: (base) => ({ ...base, padding: 0 }),
+          valueContainer: (base) => ({ 
+            ...base, 
+            padding: 0, 
+            display: "flex", 
+            flexWrap: "nowrap", 
+            overflow: "hidden" 
+          }),
           clearIndicator: (base) => ({ ...base, padding: 0 }),
           dropdownIndicator: (base) => ({ ...base, padding: 0 }),
           control: (base) => ({
@@ -106,7 +112,6 @@ const FilterSettings = () => {
             minHeight: 0,
             height: "100%",
             padding: "0 2px",
-            overflow: "scroll",
             boxShadow: "none",
             borderColor: "var(--pb-sep)",
             ":hover": {
