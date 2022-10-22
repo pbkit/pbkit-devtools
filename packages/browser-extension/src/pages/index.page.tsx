@@ -70,7 +70,27 @@ const Page: NextPage = () => {
   const layoutRef = useRef<FlexLayout.Layout>(null);
   const [isSidePageOpened] = useAtom(sidePageStatusAtom);
   const [requests] = useAtom(requestsAtom);
+  const resetRequests = useUpdateAtom(resetRequestsAtom);
   useDevtoolsCommunicationLogic();
+
+  useEffect(() => {
+    const handleCleanKeypress = (event: KeyboardEvent) => {
+      const key = event.key;
+      const ctrlKey = event.ctrlKey;
+      const commandKey = event.metaKey;
+
+      if (key.toLowerCase() == "k" && (ctrlKey || commandKey)) {
+        resetRequests();
+      }
+    };
+
+    document.body.addEventListener("keydown", handleCleanKeypress);
+
+    () => {
+      document.body.removeEventListener("keydown", handleCleanKeypress);
+    };
+  }, []);
+
   return (
     <div className={style["main-panel"]}>
       {isSidePageOpened === "visible" && (
