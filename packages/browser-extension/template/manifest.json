@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "pbkit-devtools",
   "version": "0.0.9",
   "description": "pbkit devtools",
@@ -7,7 +7,7 @@
     "128": "icons/pbkit-128.png"
   },
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -17,5 +17,6 @@
       "all_frames": true
     }
   ],
+  "host_permissions": ["<all_urls>"],
   "devtools_page": "devtools.html"
 }
